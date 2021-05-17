@@ -28,6 +28,7 @@ class UserSeeder extends Seeder
         ]);
 
         $district = [
+            ['code' => '1402', 'name' => 'ส่วนกลาง'],
             ['code' => '5001', 'name' => 'พระนคร'],
             ['code' => '5002', 'name' => 'ป้อมปราบศัตรูพ่าย'],
             ['code' => '5003', 'name' => 'สัมพันธวงศ์'],
