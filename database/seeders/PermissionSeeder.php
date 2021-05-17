@@ -34,7 +34,7 @@ class PermissionSeeder extends Seeder
             'Report สรุปข้อมูลแยกตามปีงบ',
         ];
 
-        foreach ($permissions as $p){
+        foreach ($permissions as $p) {
             DB::table('permissions')->insert([
                 'name' => $p,
                 'guard_name' => 'web',
@@ -42,6 +42,6 @@ class PermissionSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        }
+    }
 
 }
