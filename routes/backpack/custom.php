@@ -16,3 +16,11 @@ Route::group([
 ], function () { // custom admin routes
     Route::crud('tag', 'TagCrudController');
 }); // this should be the absolute last line of this file
+
+Route::group([
+    'namespace'  => 'App\Http\Controllers\Form',   // edit this namespace as needed
+    'middleware' => ['web', backpack_middleware()],
+], function () {
+    // custom admin routes
+    Route::crud('fd-02-1', 'FD0201Controller');
+});
