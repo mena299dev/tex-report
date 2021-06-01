@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Form;
 
 use App\Models\Form\FD0201;
+use App\Models\User;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -22,9 +23,13 @@ class FD0201Controller extends CrudController
 
     public function setup()
     {
+        $user = backpack_user();
+
+        \Log::debug($user);
         $this->crud->setModel('App\Models\Form\FD0201');
         $this->crud->setEntityNameStrings('เพิ่ม', 'สนค.02-1');
         $this->crud->setRoute('fd-02-1');
+        $this->crud->addClause('where', 'district_office_id', '=', '1402');
     }
 
     public function setupListOperation()
@@ -33,6 +38,11 @@ class FD0201Controller extends CrudController
             [
                 'name' => 'sequence',
                 'label' => 'ลำดับ',
+                'type' => 'text',
+            ],
+            [
+                'name' => 'district_office_id',
+                'label' => 'รหัสแขวง',
                 'type' => 'text',
             ],
             [
@@ -80,43 +90,19 @@ class FD0201Controller extends CrudController
                 'label' => 'หมายเหตุ',
                 'type' => 'text',
             ],
-            [ // n-n relationship (with pivot table)
-                'label' => trans('backpack::permissionmanager.roles'), // Table column heading
-                'type' => 'select_multiple',
-                'name' => 'roles', // the method that defines the relationship in your Model
-                'entity' => 'roles', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'model' => config('permission.models.role'), // foreign key model
-            ]
+
         ]);
 
-        // Role Filter
+        // district Filter
         $this->crud->addFilter(
             [
-                'name' => 'role',
+                'name' => 'district',
                 'type' => 'dropdown',
-                'label' => trans('backpack::permissionmanager.role'),
+                'label' => 'เขต',
             ],
-            config('permission.models.role')::all()->pluck('name', 'id')->toArray(),
-            function ($value) { // if the filter is active
-                $this->crud->addClause('whereHas', 'roles', function ($query) use ($value) {
-                    $query->where('role_id', '=', $value);
-                });
-            }
-        );
-
-        // Extra Permission Filter
-        $this->crud->addFilter(
-            [
-                'name' => 'permissions',
-                'type' => 'select2',
-                'label' => trans('backpack::permissionmanager.extra_permissions'),
-            ],
-            config('permission.models.permission')::all()->pluck('name', 'id')->toArray(),
-            function ($value) { // if the filter is active
-                $this->crud->addClause('whereHas', 'permissions', function ($query) use ($value) {
-                    $query->where('permission_id', '=', $value);
-                });
+            User::all()->pluck('district_code','district_code')->toArray(),
+            function ($value) {
+                $this->crud->addClause('where', 'district_office_id', $value);
             }
         );
     }
@@ -157,6 +143,7 @@ class FD0201Controller extends CrudController
         $fd->remark = $request->input('sequence');
         $fd->created_at = Carbon::now();
         $fd->updated_at = Carbon::now();
+        $fd->save();
 
 
         return redirect('fd-02-1');
@@ -184,7 +171,7 @@ class FD0201Controller extends CrudController
                 'name' => 'on_month',
                 'label' => 'ประจำเดือน',
                 'type' => 'select2_from_array',
-                'options' => ["มกราคม","กุมภาพันธ์ ","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"],
+                'options' => ["มกราคม", "กุมภาพันธ์ ", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"],
                 'allows_null' => false,
                 'default' => Carbon::now()->format('m') - 1
             ],
