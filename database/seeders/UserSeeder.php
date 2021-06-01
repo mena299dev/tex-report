@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'username' => 'Admin',
             'name' => 'Super Admin',
-            'district_code' => '0000',
+            'district_code' => '1000',
             'email' => 'tex-report@tex-report.gmail',
             'password' => Hash::make('Admin14789!'),
             'created_at' => Carbon::now(),

@@ -17,7 +17,7 @@ class CreateFinancialDepartment021Table extends Migration
             $table->id();
             $table->string('sequence',10)->nullable();
             $table->string('district_office_name',100)->nullable();
-            $table->integer('district_office_id')->nullable();
+            $table->string('district_office_id',50)->nullable();
             $table->string('month',100)->nullable();
             $table->string('year',100)->nullable();
             $table->string('district',100)->nullable();
