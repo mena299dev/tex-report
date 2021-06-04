@@ -8,9 +8,9 @@
         <input
         	type="number"
         	name="{{ $field['name'] }}"
-            onfocusout="sumTotalFD0201()"
-            step="0.01"
+            onfocusout="sumTotalFD0202()"
             value="{{ old(square_brackets_to_dots($field['name'])) ?? $field['value'] ?? $field['default'] ?? '' }}"
+            step="0.01"
             @include('crud::fields.inc.attributes')
         	>
         @if(isset($field['suffix'])) <div class="input-group-append"><span class="input-group-text">{!! $field['suffix'] !!}</span></div> @endif

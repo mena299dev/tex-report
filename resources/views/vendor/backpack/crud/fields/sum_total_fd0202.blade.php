@@ -11,7 +11,7 @@
         name="{{ $field['name'] }}"
         data-init-function="bpFieldInitTotal"
         data-formula="{{ $field['formula'] }}"
-        onfocusout="sumTotalFD0201()"
+        onfocusout="sumTotalFD0202()"
         step="0.01"
         value="{{ old(square_brackets_to_dots($field['name'])) ?? $field['value'] ?? $field['default'] ?? '' }}"
         @include('crud::fields.inc.attributes')
@@ -37,7 +37,7 @@
     @push('crud_fields_scripts')
         <script>
 
-            function sumTotalFD0201() {
+            function sumTotalFD0202() {
                 // element will be a jQuery wrapped DOM node - the number input shown above
                 var tax_amount = parseFloat(document.getElementsByName("tax_amount")[0].value);
                 var increment_amount = parseFloat(document.getElementsByName("increment_amount")[0].value);

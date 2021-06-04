@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
-class FD0201 extends Model
+class FD0202 extends Model
 {
     use HasFactory, Notifiable;
     use CrudTrait;
     use HasRoles;
 
-    protected $table = 'financial_department_02_1';
+    protected $table = 'financial_department_02_2';
     protected $fillable = [
         'sequence',
         'district',
@@ -24,6 +24,7 @@ class FD0201 extends Model
         'defaulter_year',
         'tax_amount',
         'increment_amount',
+        'surveying_number',
         'date_of_notice',
         'date_of_payment',
         'remark',

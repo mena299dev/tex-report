@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Form;
 
-use App\Models\Form\FD0201;
+use App\Models\Form\FD0202;
 use App\Models\User;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Carbon\Carbon;
@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class FD0201Controller extends CrudController
+class FD0202Controller extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation {
@@ -25,9 +25,9 @@ class FD0201Controller extends CrudController
     public function setup()
     {
         $user = backpack_user();
-        $this->crud->setModel('App\Models\Form\FD0201');
-        $this->crud->setEntityNameStrings('เพิ่ม', 'สนค.02-1');
-        $this->crud->setRoute('fd-02-1');
+        $this->crud->setModel('App\Models\Form\FD0202');
+        $this->crud->setEntityNameStrings('เพิ่ม', 'สนค.02-2');
+        $this->crud->setRoute('fd-02-2');
         if($user->district_code != '1000'){
             $this->crud->addClause('where', 'district_office_id', '=', $user->district_code);
         }
@@ -65,17 +65,22 @@ class FD0201Controller extends CrudController
             [
                 'name' => 'tax_amount',
                 'label' => 'จำนวนเงิน ค่าภาษี',
-                'type' => 'number_fd0201',
+                'type' => 'number_fd0202',
             ],
             [
                 'name' => 'increment_amount',
                 'label' => 'จำนวนเงิน ค่าเพิ่ม',
-                'type' => 'number_fd0201',
+                'type' => 'number_fd0202',
             ],
             [
                 'name' => 'total_amount',
                 'label' => 'จำนวนเงิน รวม',
-                'type' => 'number_fd0201',
+                'type' => 'number_fd0202',
+            ],
+            [
+                'name' => 'surveying_number',
+                'label' => 'เลขสำรวจ',
+                'type' => 'text',
             ],
             [
                 'name' => 'date_of_notice',
@@ -129,7 +134,7 @@ class FD0201Controller extends CrudController
     public function store(Request $request)
     {
         $user = backpack_user();
-        $fd = new FD0201();
+        $fd = new FD0202();
         $fd->sequence = $request->input('sequence');
         $fd->district_office_name = $user->username;
         $fd->district_office_id = $user->district_code;
@@ -140,6 +145,7 @@ class FD0201Controller extends CrudController
         $fd->defaulter_year = $request->input('defaulter_year');
         $fd->tax_amount = $request->input('tax_amount');
         $fd->increment_amount = $request->input('increment_amount');
+        $fd->surveying_number = $request->input('surveying_number');
         $fd->date_of_notice = $request->input('date_of_notice');
         $fd->date_of_payment = $request->input('date_of_payment');
         $fd->remark = $request->input('remark');
@@ -148,7 +154,7 @@ class FD0201Controller extends CrudController
         $fd->save();
 
 
-        return redirect('fd-02-1');
+        return redirect('fd-02-2');
     }
 
     /**
@@ -156,10 +162,10 @@ class FD0201Controller extends CrudController
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $user = backpack_user();
-        $fd = FD0201::whereId($id)->first();
+        $fd = FD0202::whereId($id)->first();
         if(!$fd){
             return 'error id not found';
         }
@@ -173,6 +179,7 @@ class FD0201Controller extends CrudController
         $fd->defaulter_year = $request->input('defaulter_year');
         $fd->tax_amount = $request->input('tax_amount');
         $fd->increment_amount = $request->input('increment_amount');
+        $fd->surveying_number = $request->input('surveying_number');
         $fd->date_of_notice = $request->input('date_of_notice');
         $fd->date_of_payment = $request->input('date_of_payment');
         $fd->remark = $request->input('remark');
@@ -180,7 +187,12 @@ class FD0201Controller extends CrudController
         $fd->updated_at = Carbon::now();
         $fd->save();
 
-        return redirect('fd-02-1');
+        return redirect('fd-02-2');
+//        $this->crud->setRequest($this->crud->validateRequest());
+//        $this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
+//        $this->crud->unsetValidation(); // validation has already been run
+
+//        return $this->traitUpdate();
     }
 
 
@@ -232,13 +244,13 @@ class FD0201Controller extends CrudController
             [
                 'name' => 'tax_amount',
                 'label' => 'จำนวนเงิน ค่าภาษี',
-                'type' => 'number_fd0201',
+                'type' => 'number_fd0202',
                 'default' => 0
             ],
             [
                 'name' => 'increment_amount',
                 'label' => 'จำนวนเงิน ค่าเพิ่ม',
-                'type' => 'number_fd0201',
+                'type' => 'number_fd0202',
                 'default' => 0
             ],
             [
@@ -249,6 +261,11 @@ class FD0201Controller extends CrudController
                     'readonly' => 'readonly'
                 ],
                 'formula' => true
+            ],
+            [
+                'name' => 'surveying_number',
+                'label' => 'เลขสำรวจ',
+                'type' => 'text',
             ],
             [
                 'name' => 'date_of_notice',
