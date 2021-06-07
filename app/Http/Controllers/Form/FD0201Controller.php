@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Form;
 
+use App\Http\Classes\Redirect;
 use App\Models\Form\FD0201;
 use App\Models\User;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
@@ -148,7 +149,7 @@ class FD0201Controller extends CrudController
         $fd->save();
 
 
-        return redirect('fd-02-1');
+        return \redirect(Redirect::redirect($request->input('save_action'),null,'fd-02-1'));
     }
 
     /**
@@ -180,7 +181,7 @@ class FD0201Controller extends CrudController
         $fd->updated_at = Carbon::now();
         $fd->save();
 
-        return redirect('fd-02-1');
+        return \redirect(Redirect::redirect($request->input('save_action'),$id,'fd-02-1'));
     }
 
 
