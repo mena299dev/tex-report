@@ -28,7 +28,7 @@ return [
 
     // Edit form
     'edit'                 => 'Edit',
-    'save'                 => 'Save',
+    'save'                 => 'บันทึก',
 
     // Translatable models
     'edit_translations' => 'Translation',
