@@ -125,7 +125,7 @@ $field_language = isset($field['date_picker_options']['language']) ? $field['dat
                 isoUtcDateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"
             }, dateFormat.i18n = {
                 dayNames: ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัส", "ศุกร์", "เสาร์", "อาทิตย์"],
-                monthNames: ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"]
+                monthNames: ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม" ]
             }, Date.prototype.format = function (a, b) {
                 return dateFormat(this, a, b)
             };
@@ -146,7 +146,7 @@ $field_language = isset($field['date_picker_options']['language']) ? $field['dat
                     // manually gives us more defined behavior.
                     // See https://stackoverflow.com/questions/2587345/why-does-date-parse-give-incorrect-results
                     var parts = $existingVal.split('-');
-                    var year = parts[0]+543;
+                    var year = parts[0];
                     var month = parts[1] - 1; // Date constructor expects a zero-indexed month
                     var day = parts[2];
                     preparedDate = new Date(year, month, day).format($customConfig.format);
@@ -161,28 +161,28 @@ $field_language = isset($field['date_picker_options']['language']) ? $field['dat
                 //     return false;
                 // });
 
-                $picker.on('show hide change', function (e) {
-                    if (e.date) {
-                        var sqlDate = e.format('yyyy-mm-dd');
-                    } else {
-                        try {
-                            var sqlDate = $fake.val();
-
-                            if ($customConfig.format === 'dd/mm/yyyy') {
-                                sqlDate = new Date(sqlDate.split('/')[2], sqlDate.split('/')[1] - 1, sqlDate.split('/')[0]).format('yyyy-mm-dd');
-                            }
-                        } catch (e) {
-                            if ($fake.val()) {
-                                new Noty({
-                                    type: "error",
-                                    text: "<strong>Whoops!</strong><br>Sorry we did not recognise that date format, please make sure it uses a yyyy mm dd combination"
-                                }).show();
-                            }
-                        }
-                    }
-
-                    $field.val(sqlDate);
-                });
+                // $picker.on('show hide change', function (e) {
+                //     if (e.date) {
+                //         var sqlDate = e.format('yyyy-mm-dd');
+                //     } else {
+                //         try {
+                //             var sqlDate = $fake.val();
+                //
+                //             if ($customConfig.format === 'dd/mm/yyyy') {
+                //                 sqlDate = new Date(sqlDate.split('/')[2], sqlDate.split('/')[1] - 1, sqlDate.split('/')[0]).format('yyyy-mm-dd');
+                //             }
+                //         } catch (e) {
+                //             if ($fake.val()) {
+                //                 new Noty({
+                //                     type: "error",
+                //                     text: "<strong>Whoops!</strong><br>Sorry we did not recognise that date format, please make sure it uses a yyyy mm dd combination"
+                //                 }).show();
+                //             }
+                //         }
+                //     }
+                //
+                //     $field.val(sqlDate);
+                // });
             }
         </script>
     @endpush
