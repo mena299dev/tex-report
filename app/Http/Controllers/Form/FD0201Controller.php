@@ -201,11 +201,11 @@ class FD0201Controller extends CrudController
                 'label' => 'ประจำปี',
                 'type' => 'select2_from_array',
                 'options' => [
-                    Carbon::now()->addYear("-2")->year,
-                    Carbon::now()->addYear("-1")->year,
-                    Carbon::now()->year,
-                    Carbon::now()->addYear("1")->year,
-                    Carbon::now()->addYear("2")->year,
+                    Carbon::now()->addYear("+543")->addYear("-2")->year,
+                    Carbon::now()->addYear("+543")->addYear("-1")->year,
+                    Carbon::now()->addYear("+543")->year,
+                    Carbon::now()->addYear("+543")->addYear("1")->year,
+                    Carbon::now()->addYear("+543")->addYear("2")->year,
                 ],
                 'allows_null' => false,
                 'default' => 2
@@ -254,23 +254,23 @@ class FD0201Controller extends CrudController
             [
                 'name' => 'date_of_notice',
                 'label' => 'วันที่รับใบแจ้ง',
-                'type' => 'date',
+                'type' => 'date_picker_th',
 
                 'date_picker_options' => [
-                    'todayBtn' => 'linked',
+                    'todayBtn' => 'false',
                     'format' => 'dd-mm-yyyy',
-                    'language' => 'th'
+                    'language' => 'th',
                 ],
             ],
             [
                 'name' => 'date_of_payment',
                 'label' => 'วันที่รับชำระ',
-                'type' => 'date',
+                'type' => 'date_picker_th',
 
                 'date_picker_options' => [
-                    'todayBtn' => 'linked',
+                    'todayBtn' => 'false',
                     'format' => 'dd-mm-yyyy',
-                    'language' => 'th'
+                    'language' => 'th',
                 ],
             ],
             [
