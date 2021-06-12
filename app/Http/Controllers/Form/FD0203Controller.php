@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Form;
 
 use App\Http\Classes\Redirect;
+use App\Http\Classes\YearList;
 use App\Models\Form\FD0203;
 use App\Models\User;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
@@ -84,12 +85,12 @@ class FD0203Controller extends CrudController
                 'type' => 'text',
             ],
             [
-                'name' => 'date_of_notice',
+                'name' => 'date_of_notice_th',
                 'label' => 'วันที่รับใบแจ้ง',
                 'type' => 'text',
             ],
             [
-                'name' => 'date_of_payment',
+                'name' => 'date_of_payment_th',
                 'label' => 'วันที่รับชำระ',
                 'type' => 'text',
             ],
@@ -147,8 +148,8 @@ class FD0203Controller extends CrudController
         $fd->tax_amount = $request->input('tax_amount');
         $fd->increment_amount = $request->input('increment_amount');
         $fd->receive_number = $request->input('receive_number');
-        $fd->date_of_notice = $request->input('date_of_notice');
-        $fd->date_of_payment = $request->input('date_of_payment');
+        $fd->date_of_notice = Carbon::parse($request->input('date_of_notice_selected'))->addYear(-543);
+        $fd->date_of_payment = Carbon::parse($request->input('date_of_payment_selected'))->addYear(-543);
         $fd->remark = $request->input('remark');
         $fd->created_at = Carbon::now();
         $fd->updated_at = Carbon::now();
@@ -181,8 +182,8 @@ class FD0203Controller extends CrudController
         $fd->tax_amount = $request->input('tax_amount');
         $fd->increment_amount = $request->input('increment_amount');
         $fd->receive_number = $request->input('receive_number');
-        $fd->date_of_notice = $request->input('date_of_notice');
-        $fd->date_of_payment = $request->input('date_of_payment');
+        $fd->date_of_notice = Carbon::parse($request->input('date_of_notice_selected'))->addYear(-543);
+        $fd->date_of_payment = Carbon::parse($request->input('date_of_payment_selected'))->addYear(-543);
         $fd->remark = $request->input('remark');
         $fd->created_at = Carbon::now();
         $fd->updated_at = Carbon::now();
@@ -215,13 +216,7 @@ class FD0203Controller extends CrudController
                 'name' => 'on_year',
                 'label' => 'ประจำปี',
                 'type' => 'select2_from_array',
-                'options' => [
-                    Carbon::now()->addYear("-2")->year,
-                    Carbon::now()->addYear("-1")->year,
-                    Carbon::now()->year,
-                    Carbon::now()->addYear("1")->year,
-                    Carbon::now()->addYear("2")->year,
-                ],
+                'options' => YearList::yearList(),
                 'allows_null' => false,
                 'default' => 2
             ],
@@ -274,23 +269,23 @@ class FD0203Controller extends CrudController
             [
                 'name' => 'date_of_notice',
                 'label' => 'วันที่รับใบแจ้ง',
-                'type' => 'date',
+                'type' => 'date_picker_th',
 
                 'date_picker_options' => [
-                    'todayBtn' => 'linked',
+                    'todayBtn' => 'false',
                     'format' => 'dd-mm-yyyy',
-                    'language' => 'th'
+                    'language' => 'th',
                 ],
             ],
             [
                 'name' => 'date_of_payment',
                 'label' => 'วันที่รับชำระ',
-                'type' => 'date',
+                'type' => 'date_picker_th',
 
                 'date_picker_options' => [
-                    'todayBtn' => 'linked',
+                    'todayBtn' => 'false',
                     'format' => 'dd-mm-yyyy',
-                    'language' => 'th'
+                    'language' => 'th',
                 ],
             ],
             [

@@ -3,6 +3,7 @@
 namespace App\Models\Form;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -25,12 +26,15 @@ class FD0204 extends Model
         'tax_amount',
         'fine_amount',
         'book_number',
-        'date_of_notice',
         'date_of_payment',
         'remark',
     ];
 
     public function getTotalAmountAttribute(){
         return $this->tax_amount + $this->increment_amount;
+    }
+
+    public function getDateOfPaymentThAttribute(){
+        return Carbon::parse($this->date_of_payment)->addYear(543)->toDateString();
     }
 }
