@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Form;
 
+use App\Http\Classes\DateList;
 use App\Http\Classes\Redirect;
-use App\Http\Classes\YearList;
 use App\Models\Form\FD0204;
 use App\Models\User;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
@@ -207,18 +207,20 @@ class FD0204Controller extends CrudController
             [
                 'name' => 'on_month',
                 'label' => 'ประจำเดือน',
-                'type' => 'select2_from_array',
-                'options' => ["มกราคม", "กุมภาพันธ์ ", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"],
+                'type' => 'select2_from_arrayFD0201',
+                'options' => DateList::fullMonthList(),
                 'allows_null' => false,
+                'column_name' => 'month',
                 'default' => Carbon::now()->format('m') - 1
             ],
             [
                 'name' => 'on_year',
                 'label' => 'ประจำปี',
-                'type' => 'select2_from_array',
-                'options' => YearList::yearList(),
+                'type' => 'select2_from_arrayFD0201',
+                'options' => DateList::yearList(),
+                'column_name' => 'year',
                 'allows_null' => false,
-                'default' => 2
+                'default' => Carbon::now()->addYear(543)->year
             ],
             [
                 'name' => 'sequence',

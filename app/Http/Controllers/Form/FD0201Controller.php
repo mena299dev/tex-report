@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Form;
 
+use App\Http\Classes\DateList;
 use App\Http\Classes\Redirect;
-use App\Http\Classes\YearList;
 use App\Models\Form\FD0201;
 use App\Models\User;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
@@ -30,7 +30,7 @@ class FD0201Controller extends CrudController
         $this->crud->setModel('App\Models\Form\FD0201');
         $this->crud->setEntityNameStrings('เพิ่ม', 'สนค.02-1');
         $this->crud->setRoute('fd-02-1');
-        if($user->district_code != '1000'){
+        if ($user->district_code != '1000') {
             $this->crud->addClause('where', 'district_office_id', '=', $user->district_code);
         }
 
@@ -150,7 +150,7 @@ class FD0201Controller extends CrudController
         $fd->save();
 
 
-        return \redirect(Redirect::redirect($request->input('save_action'),null,'fd-02-1'));
+        return \redirect(Redirect::redirect($request->input('save_action'), null, 'fd-02-1'));
     }
 
     /**
@@ -158,11 +158,11 @@ class FD0201Controller extends CrudController
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $user = backpack_user();
         $fd = FD0201::whereId($id)->first();
-        if(!$fd){
+        if (!$fd) {
             return 'error id not found';
         }
         $fd->sequence = $request->input('sequence');
@@ -182,7 +182,7 @@ class FD0201Controller extends CrudController
         $fd->updated_at = Carbon::now();
         $fd->save();
 
-        return \redirect(Redirect::redirect($request->input('save_action'),$id,'fd-02-1'));
+        return \redirect(Redirect::redirect($request->input('save_action'), $id, 'fd-02-1'));
     }
 
 
@@ -192,18 +192,20 @@ class FD0201Controller extends CrudController
             [
                 'name' => 'on_month',
                 'label' => 'ประจำเดือน',
-                'type' => 'select2_from_array',
-                'options' => ["มกราคม", "กุมภาพันธ์ ", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"],
+                'type' => 'select2_from_arrayFD0201',
+                'options' => DateList::fullMonthList(),
                 'allows_null' => false,
+                'column_name' => 'month',
                 'default' => Carbon::now()->format('m') - 1
             ],
             [
                 'name' => 'on_year',
                 'label' => 'ประจำปี',
-                'type' => 'select2_from_array',
-                'options' => YearList::yearList(),
+                'type' => 'select2_from_arrayFD0201',
+                'options' => DateList::yearList(),
+                'column_name' => 'year',
                 'allows_null' => false,
-                'default' => 2
+                'default' => Carbon::now()->addYear(543)->year
             ],
             [
                 'name' => 'sequence',
