@@ -205,7 +205,7 @@ class FD0202Controller extends CrudController
             [
                 'name' => 'on_month',
                 'label' => 'ประจำเดือน',
-                'type' => 'select2_from_arrayFD0201',
+                'type' => 'select2_from_arrayFD0202',
                 'options' => DateList::fullMonthList(),
                 'allows_null' => false,
                 'column_name' => 'month',
@@ -214,7 +214,7 @@ class FD0202Controller extends CrudController
             [
                 'name' => 'on_year',
                 'label' => 'ประจำปี',
-                'type' => 'select2_from_arrayFD0201',
+                'type' => 'select2_from_arrayFD0202',
                 'options' => DateList::yearList(),
                 'column_name' => 'year',
                 'allows_null' => false,
