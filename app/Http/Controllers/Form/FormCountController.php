@@ -185,7 +185,7 @@ class FormCountController extends CrudController
         $fc->save();
 
 
-        return \redirect(Redirect::redirect($request->input('save_action'), null, 'form-count'));
+        return \redirect(Redirect::redirect($request->input('save_action'), $id, 'form-count'));
 //        $this->crud->setRequest($this->crud->validateRequest());
 //        $this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
 //        $this->crud->unsetValidation(); // validation has already been run
