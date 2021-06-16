@@ -102,16 +102,45 @@ class FD0202Controller extends CrudController
 
         ]);
 
-        // district Filter
+        $user = backpack_user();
+        if ($user->district_code == 1000 || $user->district_code == 1402) {
+            // district Filter
+            $this->crud->addFilter(
+                [
+                    'name' => 'district',
+                    'type' => 'dropdown',
+                    'label' => 'เขต',
+                ],
+                User::all()->pluck('name', 'district_code')->toArray(),
+                function ($value) {
+                    $this->crud->addClause('where', 'district_office_id', $value);
+                }
+            );
+        }
+
+        // Month
         $this->crud->addFilter(
             [
-                'name' => 'district',
+                'name' => 'on_month',
                 'type' => 'dropdown',
-                'label' => 'เขต',
+                'label' => 'เดือน',
             ],
-            User::all()->pluck('district_code', 'district_code')->toArray(),
+            DateList::fullMonthList(),
             function ($value) {
-                $this->crud->addClause('where', 'district_office_id', $value);
+                $this->crud->addClause('where', 'month', $value);
+            }
+        );
+
+        // Year
+        $this->crud->addFilter(
+            [
+                'name' => 'on_year',
+                'type' => 'dropdown',
+                'label' => 'ปี',
+            ],
+            DateList::yearList(),
+            function ($value) {
+                $this->crud->addClause('where', 'year', $value);
             }
         );
     }
