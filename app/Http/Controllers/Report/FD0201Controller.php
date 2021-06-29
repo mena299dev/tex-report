@@ -42,10 +42,20 @@ class FD0201Controller extends CrudController
             ->where('district_office_id', $selected_district)
             ->get();
 
-        $data['title'] = 'title FD0201';
+        $month_list[0] = 'กรุณาเลือกเดือน';
+        foreach (DateList::fullMonthList() as $m_key => $m) {
+            $month_list[$m_key] = $m;
+        }
+
+        $year_list[0] = 'กรุณาเลือกปี';
+        foreach (DateList::yearList() as $y_key => $y) {
+            $year_list[$y_key] = $y;
+        }
+
+        $data['title'] = 'รายงาน สนค.02-02';
         $data['district'] = DistrictList::districtCode();
-        $data['month_list'] = DateList::fullMonthList();
-        $data['year_list'] = DateList::yearList();
+        $data['month_list'] = $month_list;
+        $data['year_list'] = $year_list;
         $data['selected'] = [
             "selected_month" => DateList::getMonth($selected_month),
             "selected_year" => $selected_year,
@@ -61,14 +71,9 @@ class FD0201Controller extends CrudController
             switch ($request->input('download_type')) {
                 case "excel" :
                     return self::exportExcel($data);
-                    break;
-
                 default :
                     return self::exportPDF($data);
-                    break;
             }
-
-
         }
 
         return view('report.fd02-01')->with($data);
@@ -79,7 +84,6 @@ class FD0201Controller extends CrudController
     {
 
         return Excel::download(new \App\Exports\FD0201($data), 'fd02-01.xlsx');
-//        return Excel::download(new \App\Exports\FD0201($data), 'fd02-01.pdf');
     }
 
     public function exportPDF($data)
@@ -100,7 +104,7 @@ class FD0201Controller extends CrudController
             'selected_year' => $selected_year,
             'selected_district' => DistrictList::getDistrictName($selected_district)[$selected_district],
         ])->setPaper('a4', 'landscape');;
-        return  $pdf->download('fd02-01.pdf');
-//        return Excel::download(new \App\Exports\FD0201($data), 'fd02-01.pdf');
+
+        return $pdf->download('fd02-01.pdf');
     }
 }

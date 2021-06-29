@@ -13,7 +13,7 @@
                 @endforeach
             </select>
 
-            <select name="on_month" id="on_month" style="width: 10%">
+            <select name="on_month" id="on_month" style="width: 15%">
                 @foreach ($month_list as $key => $value)
                     @if(request('on_month') == $key)
                         <option value="{{ $key }}" selected>{{ $value }}</option>
@@ -23,7 +23,7 @@
                 @endforeach
             </select>
 
-            <select name="on_year" id="on_year" style="width: 10%">
+            <select name="on_year" id="on_year" style="width: 15%">
                 @foreach ($year_list as $key => $value)
                     @if(request('on_year') == $key)
                         <option value="{{ $key }}" selected>{{ $value }}</option>
