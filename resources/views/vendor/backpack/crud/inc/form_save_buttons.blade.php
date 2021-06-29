@@ -3,10 +3,6 @@
 
 {{--        <input type="hidden" name="save_action" value="{{ $saveAction['active']['value'] }}">--}}
         <input type="hidden" name="save_action" value="">
-        @if(!$crud->hasOperationSetting('showCancelButton') || $crud->getOperationSetting('showCancelButton') == true)
-            <a href="{{ $crud->hasAccess('list') ? url($crud->route) : url()->previous() }}"
-               class="btn btn-default"></span>ย้อนกลับ</a> &nbsp;
-        @endif
         @if(!empty($saveAction['options']))
             <div class="btn-group" role="group">
                 @endif

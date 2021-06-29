@@ -28,3 +28,13 @@ Route::group([
     Route::crud('fd-02-4', 'FD0204Controller');
     Route::crud('form-count', 'FormCountController');
 });
+
+
+Route::group([
+    'prefix'     => 'report',
+    'namespace'  => 'App\Http\Controllers\Report',   // edit this namespace as needed
+    'middleware' => ['web', backpack_middleware()],
+], function () { // custom admin routes
+//    Route::crud('fd-02-1', 'FD0201Controller');
+    Route::get('/fd-02-1', 'FD0201Controller@index');
+}); // this should be the absolute last line of this file
