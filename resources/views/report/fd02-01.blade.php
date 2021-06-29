@@ -3,6 +3,7 @@
     <h2>สนค.02-02</h2>
     <form>
         <div class="from-group">
+            @role('Super Admin')
             <select name="district" id="district" style="width: 15%">
                 @foreach ($district as $key => $value)
                     @if(request('district') == $key)
@@ -12,7 +13,7 @@
                     @endif
                 @endforeach
             </select>
-
+            @endrole
             <select name="on_month" id="on_month" style="width: 15%">
                 @foreach ($month_list as $key => $value)
                     @if(request('on_month') == $key)
