@@ -6,4 +6,6 @@ Route::group([
 ], function () {
     // custom admin routes
     Route::crud('user', 'UserCrudController');
+    Route::crud('role', 'RoleCrudController');
+    Route::crud('permission', 'PermissionCrudController');
 });
