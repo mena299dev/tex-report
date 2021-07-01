@@ -52,16 +52,23 @@ class FD0201Controller extends CrudController
             $year_list[$y_key] = $y;
         }
 
-        $data['title'] = 'รายงาน สนค.02-02';
-        $data['district'] = DistrictList::districtCode();
+        $district_list[0] = 'กรุณาเลือกเลข';
+        foreach (DistrictList::districtCode() as $d_key => $d) {
+            $district_list[$d_key] = $d;
+        }
+
+        $data['title'] = 'รายงาน สนค.02-01';
+        $data['district'] = $district_list;
         $data['month_list'] = $month_list;
         $data['year_list'] = $year_list;
         $data['selected'] = [
-            "selected_month" => DateList::getMonth($selected_month),
-            "selected_year" => $selected_year,
-            "selected_district" => DistrictList::getDistrictName($selected_district)[$selected_district]
+            "selected_month" => $selected_month != 0 ? DateList::getMonth($selected_month) : null,
+            "selected_year" => $selected_year ?? null,
+            "selected_district" => $selected_district != 0 ? DistrictList::getDistrictName($selected_district)[$selected_district] : null
         ];
         $data['fd'] = $fd;
+
+
 
         if ($request->input('debug') == 'dev') {
             return $data;
@@ -100,9 +107,9 @@ class FD0201Controller extends CrudController
 
         $pdf = PDF::loadView('export.fd02-01', [
             'fd' => $fd,
-            'selected_month' => DateList::getMonth($selected_month),
-            'selected_year' => $selected_year,
-            'selected_district' => DistrictList::getDistrictName($selected_district)[$selected_district],
+            'selected_month' => $selected_month != 0 ? DateList::getMonth($selected_month) : null,
+            'selected_year' => $selected_year ?? null,
+            'selected_district' => $selected_district != 0 ? DistrictList::getDistrictName($selected_district)[$selected_district] : null,
         ])->setPaper('a4', 'landscape');;
 
         return $pdf->download('fd02-01.pdf');

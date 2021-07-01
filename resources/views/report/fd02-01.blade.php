@@ -1,6 +1,6 @@
 @extends(backpack_view('blank'))
 @section('content')
-    <h2>สนค.02-02</h2>
+    <h2>สนค.02-01</h2>
     <form>
         <div class="from-group">
             @role('Super Admin')
@@ -47,7 +47,7 @@
     <div>
         <table style="text-align:center; width: 100%">
             <tr>
-                <th>สนค.02-2 : แบบรายงานการจัดเก็บภาษีค้างชำระบำรุงท้องที่</th>
+                <th>สนค.02-1 : แบบรายงานการจัดเก็บภาษีค้างชำระภาษีโรงเรือนและที่ดิน</th>
             </tr>
             <tr>
                 <th>ฝ่ายรายได้</th>
@@ -82,7 +82,7 @@
             </thead>
 
             <tbody style="text-align:center;border: 1px solid black;border-collapse: collapse;">
-            @if(!isset($fd))
+            @if(!isset($fd) || count($fd) == 0)
                 <tr>
                     <td colspan="10">ไม่มีข้อมูล</td>
                 </tr>
