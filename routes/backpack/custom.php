@@ -35,6 +35,6 @@ Route::group([
     'namespace'  => 'App\Http\Controllers\Report',   // edit this namespace as needed
     'middleware' => ['web', backpack_middleware()],
 ], function () { // custom admin routes
-//    Route::crud('fd-02-1', 'FD0201Controller');
     Route::get('/fd-02-1', 'FD0201Controller@index');
+    Route::get('/fd-02-2', 'FD0202Controller@index');
 }); // this should be the absolute last line of this file
