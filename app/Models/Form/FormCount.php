@@ -23,6 +23,15 @@ class FormCount extends Model
         'district_office_id',
         'on_month',
         'on_year',
+        'tax01_serving_form',
+        'tax01_code_house',
+        'tax02_serving_form',
+        'tax02_count_land',
+        'tax03_serving_form',
+        'tax03_count_tablet',
+        'tax04_count_land',
+        'tax04_code_house',
+        'tax04_tax_customer',
     ];
 
     public function getOnMonthAttribute()
