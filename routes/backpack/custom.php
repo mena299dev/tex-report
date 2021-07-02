@@ -38,4 +38,5 @@ Route::group([
     Route::get('/fd-02-1', 'FD0201Controller@index');
     Route::get('/fd-02-2', 'FD0202Controller@index');
     Route::get('/fd-02-3', 'FD0203Controller@index');
+    Route::get('/fd-02-4', 'FD0204Controller@index');
 }); // this should be the absolute last line of this file

@@ -95,21 +95,11 @@ class FD0203Controller extends CrudController
 
     public function exportPDF($data)
     {
-        $user = backpack_user();
-        $selected_month = request('on_month') ?? Carbon::now()->month;
-        $selected_year = request('on_year') ?? Carbon::now()->year;
-        $selected_district = request('district') ?? $user->district_code;
-
-        $fd = \App\Models\Form\FD0203::where('year', $selected_year)
-            ->where('month', $selected_month)
-            ->where('district_office_id', $selected_district)
-            ->get();
-
         $pdf = PDF::loadView('export.fd02-03', [
-            'fd' => $fd,
-            'selected_month' => $selected_month != 0 ? DateList::getMonth($selected_month) : null,
-            'selected_year' => $selected_year ?? null,
-            'selected_district' => $selected_district != 0 ? DistrictList::getDistrictName($selected_district)[$selected_district] : null,
+            'fd' => $data['fd'],
+            'selected_month' => $data['selected']['selected_month'],
+            'selected_year' => $data['selected']['selected_year'],
+            'selected_district' => $data['selected']['selected_district'],
         ])->setPaper('a4', 'landscape');;
 
         return $pdf->download('fd02-03.pdf');

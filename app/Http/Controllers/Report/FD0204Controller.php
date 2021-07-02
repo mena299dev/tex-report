@@ -6,7 +6,7 @@ use App\Http\Classes\DateList;
 use App\Http\Classes\DistrictList;
 use App\Http\Classes\Redirect;
 use App\Http\Controllers\Controller;
-use App\Models\Form\FD0201;
+use App\Models\Form\FD0204;
 use App\Models\User;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Carbon\Carbon;
@@ -19,7 +19,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Barryvdh\DomPDF\Facade as PDF;
 
 
-class FD0201Controller extends CrudController
+class FD0204Controller extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation {
@@ -37,7 +37,7 @@ class FD0201Controller extends CrudController
         $selected_year = $request->input('on_year') ?? Carbon::now()->year;
         $selected_district = $request->input('district') ?? $user->district_code;
 
-        $fd = FD0201::where('year', $selected_year)
+        $fd = FD0204::where('year', $selected_year)
             ->where('month', $selected_month)
             ->where('district_office_id', $selected_district)
             ->get();
@@ -57,7 +57,7 @@ class FD0201Controller extends CrudController
             $district_list[$d_key] = $d;
         }
 
-        $data['title'] = 'รายงาน สนค.02-01';
+        $data['title'] = 'รายงาน สนค.02-04';
         $data['district'] = $district_list;
         $data['month_list'] = $month_list;
         $data['year_list'] = $year_list;
@@ -83,25 +83,25 @@ class FD0201Controller extends CrudController
             }
         }
 
-        return view('report.fd02-01')->with($data);
+        return view('report.fd02-04')->with($data);
 //        return view('export.fd02-01')->with($data);
     }
 
     public function exportExcel($data)
     {
 
-        return Excel::download(new \App\Exports\FD0201($data), 'fd02-01.xlsx');
+        return Excel::download(new \App\Exports\FD0204($data), 'fd02-04.xlsx');
     }
 
     public function exportPDF($data)
     {
-        $pdf = PDF::loadView('export.fd02-01', [
+        $pdf = PDF::loadView('export.fd02-04', [
             'fd' => $data['fd'],
             'selected_month' => $data['selected']['selected_month'],
             'selected_year' => $data['selected']['selected_year'],
             'selected_district' => $data['selected']['selected_district'],
         ])->setPaper('a4', 'landscape');;
 
-        return $pdf->download('fd02-01.pdf');
+        return $pdf->download('fd02-04.pdf');
     }
 }

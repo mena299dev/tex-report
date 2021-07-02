@@ -28,7 +28,7 @@
         <li class="nav-item"><a class="nav-link" href="{{url('report/fd-02-1')}}"><i class="nav-icon la la-id-badge"></i> <span>สนค.02-1</span></a></li>
         <li class="nav-item"><a class="nav-link" href="{{url('report/fd-02-2')}}"><i class="nav-icon la la-id-badge"></i> <span>สนค.02-2</span></a></li>
         <li class="nav-item"><a class="nav-link" href="{{url('report/fd-02-3')}}"><i class="nav-icon la la-id-badge"></i> <span>สนค.02-3</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-id-badge"></i> <span>สนค.02-4</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="{{url('report/fd-02-4')}}"><i class="nav-icon la la-id-badge"></i> <span>สนค.02-4</span></a></li>
         <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-id-badge"></i> <span>จำนวนแบบยื่น/จำนวนราย</span></a></li>
     </ul>
 </li>
