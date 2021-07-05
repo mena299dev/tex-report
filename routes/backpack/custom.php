@@ -27,6 +27,7 @@ Route::group([
     Route::crud('fd-02-3', 'FD0203Controller');
     Route::crud('fd-02-4', 'FD0204Controller');
     Route::crud('form-count', 'FormCountController');
+    Route::crud('initiation-year-tax', 'InitiationYearTaxController');
 });
 
 
