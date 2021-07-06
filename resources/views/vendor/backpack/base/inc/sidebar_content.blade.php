@@ -10,7 +10,7 @@
         <li class="nav-item"><a class="nav-link" href="{{url('initiation-year-tax') }}"><i class="nav-icon la la-user"></i> <span>ประมาณการรายรับประจำปีงบประมาณ</span></a>
         </li>
         @endrole
-        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('user') }}"><i class="nav-icon la la-user"></i>
+        <li class="nav-item"><a class="nav-link" href="{{url('fd-01')}}"><i class="nav-icon la la-user"></i>
                 <span>สนค.01</span></a></li>
         <li class="nav-item"><a class="nav-link" href="{{url('fd-02-1')}}"><i class="nav-icon la la-id-badge"></i>
                 <span>สนค.02-1</span></a></li>

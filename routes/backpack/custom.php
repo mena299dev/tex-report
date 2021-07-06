@@ -22,6 +22,7 @@ Route::group([
     'middleware' => ['web', backpack_middleware()],
 ], function () {
     // custom admin routes
+    Route::crud('fd-01', 'FD01Controller');
     Route::crud('fd-02-1', 'FD0201Controller');
     Route::crud('fd-02-2', 'FD0202Controller');
     Route::crud('fd-02-3', 'FD0203Controller');
