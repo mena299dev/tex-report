@@ -37,6 +37,7 @@ Route::group([
     'namespace'  => 'App\Http\Controllers\Report',   // edit this namespace as needed
     'middleware' => ['web', backpack_middleware()],
 ], function () { // custom admin routes
+    Route::get('/fd-01', 'FD01Controller@index');
     Route::get('/fd-02-1', 'FD0201Controller@index');
     Route::get('/fd-02-2', 'FD0202Controller@index');
     Route::get('/fd-02-3', 'FD0203Controller@index');
