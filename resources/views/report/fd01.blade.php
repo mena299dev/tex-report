@@ -469,7 +469,8 @@
                 <th style="border: 1px solid black;border-collapse: collapse">{{isset($initiation_year_tax['tax02']) ? number_format($initiation_year_tax['tax02'],2) : null}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">{{isset($initiation_year_tax['tax03']) ? number_format($initiation_year_tax['tax03'],2) : null}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">{{isset($initiation_year_tax['tax04']) ? number_format($initiation_year_tax['tax04'],2) : null}}</th>
-                <th style="border: 1px solid black;border-collapse: collapse">{{number_format($initiation_year_tax['tax01']?? 0 + $initiation_year_tax['tax02'] ?? 0 + $initiation_year_tax['tax03'] ??0 + $initiation_year_tax['tax04'] ??0,2)}}</th>
+                {{$ini_year = ($initiation_year_tax['tax01']?? 0) + ($initiation_year_tax['tax02'] ?? 0) + ($initiation_year_tax['tax03'] ??0) + ($initiation_year_tax['tax04'] ??0 )}}
+                <th style="border: 1px solid black;border-collapse: collapse">{{isset($ini_year) ? number_format($ini_year,2) : null}}</th>
             </tr>
             <tr>
                 <th style="border: 1px solid black;border-collapse: collapse">จัดเก็บได้ตั้งแต่
@@ -478,7 +479,8 @@
                 <th style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax02_accept_payment_monthly_money']) ? number_format($cumulative_year['tax02_accept_payment_monthly_money'],2) : null}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax03_accept_payment_monthly_money']) ? number_format($cumulative_year['tax03_accept_payment_monthly_money'],2) : null}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax04_accept_payment_monthly_money']) ? number_format($cumulative_year['tax04_accept_payment_monthly_money'],2) : null}}</th>
-                <th style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax01_accept_payment_monthly_money'] ?? 0 + $cumulative_year['tax02_accept_payment_monthly_money'] ?? 0 + $cumulative_year['tax03_accept_payment_monthly_money'] ?? 0 + $cumulative_year['tax04_accept_payment_monthly_money'] ?? 0,2)}}</th>
+                {{$cum_year = ($cumulative_year['tax01_accept_payment_monthly_money'] ?? 0) + ($cumulative_year['tax02_accept_payment_monthly_money'] ?? 0) + ($cumulative_year['tax03_accept_payment_monthly_money'] ?? 0) + ($cumulative_year['tax04_accept_payment_monthly_money'] ?? 0)}}
+                <th style="border: 1px solid black;border-collapse: collapse">{{isset($cum_year) ? number_format($cum_year,2) : null}}</th>
             </tr>
             <tr>
                 <th style="border: 1px solid black;border-collapse: collapse">คิดเป็นร้อยละของการประมาณการ</th>
