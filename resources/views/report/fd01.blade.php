@@ -484,10 +484,10 @@
             </tr>
             <tr>
                 <th style="border: 1px solid black;border-collapse: collapse">คิดเป็นร้อยละของการประมาณการ</th>
-                <th style="border: 1px solid black;border-collapse: collapse">{{$initiation_year_tax['tax01'] != 0 || $initiation_year_tax['tax01'] !== null ? number_format(($cumulative_year['tax01_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax01'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
-                <th style="border: 1px solid black;border-collapse: collapse">{{$initiation_year_tax['tax02'] != 0 || $initiation_year_tax['tax02'] !== null ? number_format(($cumulative_year['tax02_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax02'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
-                <th style="border: 1px solid black;border-collapse: collapse">{{$initiation_year_tax['tax03'] != 0 || $initiation_year_tax['tax03'] !== null ? number_format(($cumulative_year['tax03_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax03'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
-                <th style="border: 1px solid black;border-collapse: collapse">{{$initiation_year_tax['tax04'] != 0 || $initiation_year_tax['tax04'] !== null ? number_format(($cumulative_year['tax04_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax04'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
+                <th style="border: 1px solid black;border-collapse: collapse">{{isset($initiation_year_tax['tax01']) && ($initiation_year_tax['tax01'] != 0 || $initiation_year_tax['tax01'] !== null) ? number_format(($cumulative_year['tax01_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax01'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
+                <th style="border: 1px solid black;border-collapse: collapse">{{isset($initiation_year_tax['tax02']) && ($initiation_year_tax['tax02'] != 0 || $initiation_year_tax['tax02'] !== null) ? number_format(($cumulative_year['tax02_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax02'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
+                <th style="border: 1px solid black;border-collapse: collapse">{{isset($initiation_year_tax['tax03']) && ($initiation_year_tax['tax03'] != 0 || $initiation_year_tax['tax03'] !== null) ? number_format(($cumulative_year['tax03_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax03'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
+                <th style="border: 1px solid black;border-collapse: collapse">{{isset($initiation_year_tax['tax04']) && ($initiation_year_tax['tax04'] != 0 || $initiation_year_tax['tax04'] !== null) ? number_format(($cumulative_year['tax04_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax04'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse"></th>
             </tr>
             </tbody>
