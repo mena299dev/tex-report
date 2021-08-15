@@ -243,6 +243,7 @@ return [
     // If null, the config.auth.defaults.passwords value will be used.
     'passwords' => 'backpack',
 
+
     // What kind of avatar will you like to show to the user?
     // Default: gravatar (automatically use the gravatar for their email)
     // Other options:

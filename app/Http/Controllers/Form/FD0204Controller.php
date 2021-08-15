@@ -30,7 +30,7 @@ class FD0204Controller extends CrudController
         $this->crud->setModel('App\Models\Form\FD0204');
         $this->crud->setEntityNameStrings('เพิ่ม', 'สนค.02-4');
         $this->crud->setRoute('fd-02-4');
-        if($user->district_code != '1000'){
+        if ($user->district_code != '1000' && $user->district_code != '1402') {
             $this->crud->addClause('where', 'district_office_id', '=', $user->district_code);
         }
 

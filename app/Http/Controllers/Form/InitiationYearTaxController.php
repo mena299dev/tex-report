@@ -32,7 +32,7 @@ class InitiationYearTaxController extends CrudController
         $this->crud->setModel('App\Models\Form\InitiationYearTax');
         $this->crud->setEntityNameStrings('เพิ่ม', 'ประมาณการรายรับประจำปีงบประมาณ');
         $this->crud->setRoute('initiation-year-tax');
-        if ($user->district_code != '1000') {
+        if ($user->district_code != '1000' && $user->district_code != '1402') {
             $this->crud->addClause('where', 'district_office_id', '=', $user->district_code);
         }
 

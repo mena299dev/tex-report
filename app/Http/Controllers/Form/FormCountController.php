@@ -32,7 +32,7 @@ class FormCountController extends CrudController
         $this->crud->setModel('App\Models\Form\FormCount');
         $this->crud->setEntityNameStrings('เพิ่ม', 'จำนวนแบบยื่น/จำนวนราย');
         $this->crud->setRoute('form-count');
-        if ($user->district_code != '1000') {
+        if ($user->district_code != '1000' && $user->district_code != '1402') {
             $this->crud->addClause('where', 'district_office_id', '=', $user->district_code);
         }
 
