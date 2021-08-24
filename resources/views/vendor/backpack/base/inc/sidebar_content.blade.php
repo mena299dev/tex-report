@@ -3,6 +3,8 @@
             class="la la-home nav-icon"></i> {{ trans('backpack::base.dashboard') }}</a></li>
 
 <!-- Form สนค -->
+@role('Central')
+@else
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> Form</a>
     <ul class="nav-dropdown-items">
@@ -22,8 +24,10 @@
                 <span>สนค.02-4</span></a></li>
         <li class="nav-item"><a class="nav-link" href="{{url('form-count')}}"><i class="nav-icon la la-id-badge"></i>
                 <span>จำนวนแบบยื่น/จำนวนราย</span></a></li>
+
     </ul>
 </li>
+@endrole
 
 <!-- Report สนค -->
 <li class="nav-item nav-dropdown">
