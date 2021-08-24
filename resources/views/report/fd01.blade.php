@@ -83,7 +83,7 @@
                     เป็นเงิน {{isset($fd['tax01_accounts_receivable_brought_forward_money']) ? number_format($fd['tax01_accounts_receivable_brought_forward_money'],2) : null}}
                     บาท)
                 </th>
-                <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ บาท
+                <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ {{isset($fd['tax01_estimated_amount_money']) ? number_format($fd['tax01_estimated_amount_money'],2) : null}} บาท
                 </th>
             </tr>
             <tr>
@@ -177,7 +177,7 @@
                     เป็นเงิน {{isset($fd['tax02_accounts_receivable_brought_forward_money']) ? number_format($fd['tax02_accounts_receivable_brought_forward_money'],2) : null}}
                     บาท)
                 </th>
-                <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ บาท
+                <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ {{isset($fd['tax02_estimated_amount_money']) ? number_format($fd['tax02_estimated_amount_money'],2) : null}} บาท
                 </th>
             </tr>
             <tr>
@@ -268,8 +268,8 @@
                     เป็นเงิน {{isset($fd['tax03_accounts_receivable_brought_forward_money']) ? number_format($fd['tax03_accounts_receivable_brought_forward_money'],2) : null}}
                     บาท)
                 </th>
-                <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ บาท
-                </th>
+                <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ {{isset($fd['tax03_estimated_amount_money']) ? number_format($fd['tax03_estimated_amount_money'],2) : null}} บาท
+                </th>>
             </tr>
             <tr>
                 <th style="border: 1px solid black;border-collapse: collapse">
@@ -366,7 +366,7 @@
                 @else
                     <th style="border: 1px solid black;border-collapse: collapse" colspan="3"></th>
                 @endif
-                <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ บาท
+                <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ {{isset($fd['tax04_estimated_amount_money']) ? number_format($fd['tax04_estimated_amount_money'],2) : null}} บาท
                 </th>
             </tr>
             <tr>
@@ -448,7 +448,7 @@
             <thead style="text-align:center;border: 1px solid black;border-collapse: collapse">
             <tr>
                 <th style="border: 1px solid black;border-collapse: collapse"></th>
-                <th style="border: 1px solid black;border-collapse: collapse" colspan="5">ประมาณการ/ผลการจัดเก็บภาษี 3
+                <th style="border: 1px solid black;border-collapse: collapse" colspan="5">ประมาณการ/ผลการจัดเก็บภาษี 4
                     ประเภท
                 </th>
             </tr>
