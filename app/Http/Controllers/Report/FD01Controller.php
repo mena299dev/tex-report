@@ -53,11 +53,15 @@ class FD01Controller extends CrudController
             ->where('month', $selected_month)
             ->where('district_office_id', $selected_district)
             ->first();
+        $iniYearTax = $selected_month >= 10 ? $selected_year + 1 : $selected_year;
 
         $InitiationYearTax = InitiationYearTax:: select('*')
-            ->where('year', $selected_year)
+            ->where('year', $iniYearTax)
             ->where('district_office_id', $selected_district)
             ->first();
+
+        \Log::debug($selected_year);
+        \Log::debug($selected_district);
 
         $data['title'] = 'รายงาน สนค.01';
         $data['district'] = $district_list;
@@ -66,13 +70,13 @@ class FD01Controller extends CrudController
         $data['selected'] = [
             "selected_month" => $selected_month != 0 ? DateList::getMonth($selected_month) : null,
             "selected_month_short" => $selected_month != 0 ? DateList::getMonthShort($selected_month) : null,
-            "selected_year" => $selected_year ?? null,
-            "selected_year_short" => Str::substr($selected_year, -2, 2) ?? null,
+            "selected_year" => $iniYearTax ?? null,
+            "selected_year_short" => Str::substr($iniYearTax, -2, 2) ?? null,
             "selected_district" => $selected_district != 0 ? DistrictList::getDistrictName($selected_district)[$selected_district] : null
         ];
 
         $data['fd'] = $fd;
-        $data['cumulative_year'] = $this->getCumulativeByYear($selected_year, $selected_month, $selected_district);
+        $data['cumulative_year'] = $this->getCumulativeByYear($iniYearTax, $selected_month, $selected_district);
         $data['initiation_year_tax'] = $InitiationYearTax;
 
 
@@ -113,8 +117,8 @@ class FD01Controller extends CrudController
             ->get();
 
         $fd = [];
-        foreach ($fd_data as $d){
-            $fd[] = json_decode($d->json,true);
+        foreach ($fd_data as $d) {
+            $fd[] = json_decode($d->json, true);
         }
 
         $fd = collect($fd);
@@ -187,7 +191,7 @@ class FD01Controller extends CrudController
                 'selected_year' => $data['selected']['selected_year'],
                 'selected_year_short' => Str::substr($data['selected']['selected_year'], -2, 2) ?? null,
                 'selected_district' => $data['selected']['selected_district']]
-        ])->setPaper(array(0,0,600,800), 'landscape');
+        ])->setPaper(array(0, 0, 600, 800), 'landscape');
 
         return $pdf->download('fd01.pdf');
     }
