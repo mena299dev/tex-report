@@ -100,7 +100,7 @@ class FD01Controller extends CrudController
         $previous_year = $year - 1;
         $select_month = $select_month === null ? Carbon::now()->addMonth(-1)->month : $select_month;
 
-        $fd = FD01::select('*')
+        $fd_data = FD01::select('*')
             ->where(function ($q) use ($previous_year) {
                 $q->where('month', '>=', 10);
                 $q->where('year', '=', $previous_year);
@@ -112,51 +112,57 @@ class FD01Controller extends CrudController
             ->where('district_office_id', $selected_district)
             ->get();
 
+        $fd = [];
+        foreach ($fd_data as $d){
+            $fd[] = json_decode($d->json,true);
+        }
+
         $fd = collect($fd);
 
-        $data['tax01_estimated_amount_form'] = $fd->sum('tax01_estimated_amount_form');
-        $data['tax01_estimated_amount_money'] = $fd->sum('tax01_estimated_amount_money');
-        $data['tax01_accept_payment_form'] = $fd->sum('tax01_accept_payment_form');
-        $data['tax01_accept_payment_money'] = $fd->sum('tax01_accept_payment_money');
-        $data['tax01_accounts_receivable_brought_forward_form'] = $fd->sum('tax01_accounts_receivable_brought_forward_form');
-        $data['tax01_accounts_receivable_brought_forward_money'] = $fd->sum('tax01_accounts_receivable_brought_forward_money');
-        $data['tax01_accounts_receivable_accept_payment_form'] = $fd->sum('tax01_accounts_receivable_accept_payment_form');
-        $data['tax01_accounts_receivable_accept_payment_money'] = $fd->sum('tax01_accounts_receivable_accept_payment_money');
-        $data['tax01_accept_payment_monthly_form'] = $fd->sum('tax01_accept_payment_monthly_form');
-        $data['tax01_accept_payment_monthly_money'] = $fd->sum('tax01_accept_payment_monthly_money');
 
-        $data['tax02_estimated_amount_form'] = $fd->sum('tax02_estimated_amount_form');
-        $data['tax02_estimated_amount_money'] = $fd->sum('tax02_estimated_amount_money');
-        $data['tax02_accept_payment_form'] = $fd->sum('tax02_accept_payment_form');
-        $data['tax02_accept_payment_money'] = $fd->sum('tax02_accept_payment_money');
-        $data['tax02_accounts_receivable_brought_forward_form'] = $fd->sum('tax02_accounts_receivable_brought_forward_form');
-        $data['tax02_accounts_receivable_brought_forward_money'] = $fd->sum('tax02_accounts_receivable_brought_forward_money');
-        $data['tax02_accounts_receivable_accept_payment_form'] = $fd->sum('tax02_accounts_receivable_accept_payment_form');
-        $data['tax02_accounts_receivable_accept_payment_money'] = $fd->sum('tax02_accounts_receivable_accept_payment_money');
-        $data['tax02_accept_payment_monthly_form'] = $fd->sum('tax02_accept_payment_monthly_form');
-        $data['tax02_accept_payment_monthly_money'] = $fd->sum('tax02_accept_payment_monthly_money');
+        $data['tax01_estimated_amount_form'] = $fd->sum('tax01.tax01_estimated_amount_form');
+        $data['tax01_estimated_amount_money'] = $fd->sum('tax01.tax01_estimated_amount_money');
+        $data['tax01_accept_payment_form'] = $fd->sum('tax01.tax01_accept_payment_form');
+        $data['tax01_accept_payment_money'] = $fd->sum('tax01.tax01_accept_payment_money');
+        $data['tax01_accounts_receivable_brought_forward_form'] = $fd->sum('tax01.tax01_accounts_receivable_brought_forward_form');
+        $data['tax01_accounts_receivable_brought_forward_money'] = $fd->sum('tax01.tax01_accounts_receivable_brought_forward_money');
+        $data['tax01_accounts_receivable_accept_payment_form'] = $fd->sum('tax01.tax01_accounts_receivable_accept_payment_form');
+        $data['tax01_accounts_receivable_accept_payment_money'] = $fd->sum('tax01.tax01_accounts_receivable_accept_payment_money');
+        $data['tax01_accept_payment_monthly_form'] = $fd->sum('tax01.tax01_accept_payment_monthly_form');
+        $data['tax01_accept_payment_monthly_money'] = $fd->sum('tax01.tax01_accept_payment_monthly_money');
 
-        $data['tax03_estimated_amount_form'] = $fd->sum('tax03_estimated_amount_form');
-        $data['tax03_estimated_amount_money'] = $fd->sum('tax03_estimated_amount_money');
-        $data['tax03_accept_payment_form'] = $fd->sum('tax03_accept_payment_form');
-        $data['tax03_accept_payment_money'] = $fd->sum('tax03_accept_payment_money');
-        $data['tax03_accounts_receivable_brought_forward_form'] = $fd->sum('tax03_accounts_receivable_brought_forward_form');
-        $data['tax03_accounts_receivable_brought_forward_money'] = $fd->sum('tax03_accounts_receivable_brought_forward_money');
-        $data['tax03_accounts_receivable_accept_payment_form'] = $fd->sum('tax03_accounts_receivable_accept_payment_form');
-        $data['tax03_accounts_receivable_accept_payment_money'] = $fd->sum('tax03_accounts_receivable_accept_payment_money');
-        $data['tax03_accept_payment_monthly_form'] = $fd->sum('tax03_accept_payment_monthly_form');
-        $data['tax03_accept_payment_monthly_money'] = $fd->sum('tax03_accept_payment_monthly_money');
+        $data['tax02_estimated_amount_form'] = $fd->sum('tax02.tax02_estimated_amount_form');
+        $data['tax02_estimated_amount_money'] = $fd->sum('tax02.tax02_estimated_amount_money');
+        $data['tax02_accept_payment_form'] = $fd->sum('tax02.tax02_accept_payment_form');
+        $data['tax02_accept_payment_money'] = $fd->sum('tax02.tax02_accept_payment_money');
+        $data['tax02_accounts_receivable_brought_forward_form'] = $fd->sum('tax02.tax02_accounts_receivable_brought_forward_form');
+        $data['tax02_accounts_receivable_brought_forward_money'] = $fd->sum('tax02.tax02_accounts_receivable_brought_forward_money');
+        $data['tax02_accounts_receivable_accept_payment_form'] = $fd->sum('tax02.tax02_accounts_receivable_accept_payment_form');
+        $data['tax02_accounts_receivable_accept_payment_money'] = $fd->sum('tax02.tax02_accounts_receivable_accept_payment_money');
+        $data['tax02_accept_payment_monthly_form'] = $fd->sum('tax02.tax02_accept_payment_monthly_form');
+        $data['tax02_accept_payment_monthly_money'] = $fd->sum('tax02.tax02_accept_payment_monthly_money');
 
-        $data['tax04_estimated_amount_form'] = $fd->sum('tax04_estimated_amount_form');
-        $data['tax04_estimated_amount_money'] = $fd->sum('tax04_estimated_amount_money');
-        $data['tax04_accept_payment_form'] = $fd->sum('tax04_accept_payment_form');
-        $data['tax04_accept_payment_money'] = $fd->sum('tax04_accept_payment_money');
-        $data['tax04_accounts_receivable_brought_forward_form'] = $fd->sum('tax04_accounts_receivable_brought_forward_form');
-        $data['tax04_accounts_receivable_brought_forward_money'] = $fd->sum('tax04_accounts_receivable_brought_forward_money');
-        $data['tax04_accounts_receivable_accept_payment_form'] = $fd->sum('tax04_accounts_receivable_accept_payment_form');
-        $data['tax04_accounts_receivable_accept_payment_money'] = $fd->sum('tax04_accounts_receivable_accept_payment_money');
-        $data['tax04_accept_payment_monthly_form'] = $fd->sum('tax04_accept_payment_monthly_form');
-        $data['tax04_accept_payment_monthly_money'] = $fd->sum('tax04_accept_payment_monthly_money');
+        $data['tax03_estimated_amount_form'] = $fd->sum('tax03.tax03_estimated_amount_form');
+        $data['tax03_estimated_amount_money'] = $fd->sum('tax03.tax03_estimated_amount_money');
+        $data['tax03_accept_payment_form'] = $fd->sum('tax03.tax03_accept_payment_form');
+        $data['tax03_accept_payment_money'] = $fd->sum('tax03.tax03_accept_payment_money');
+        $data['tax03_accounts_receivable_brought_forward_form'] = $fd->sum('tax03.tax03_accounts_receivable_brought_forward_form');
+        $data['tax03_accounts_receivable_brought_forward_money'] = $fd->sum('tax03.tax03_accounts_receivable_brought_forward_money');
+        $data['tax03_accounts_receivable_accept_payment_form'] = $fd->sum('tax03.tax03_accounts_receivable_accept_payment_form');
+        $data['tax03_accounts_receivable_accept_payment_money'] = $fd->sum('tax03.tax03_accounts_receivable_accept_payment_money');
+        $data['tax03_accept_payment_monthly_form'] = $fd->sum('tax03.tax03_accept_payment_monthly_form');
+        $data['tax03_accept_payment_monthly_money'] = $fd->sum('tax03.tax03_accept_payment_monthly_money');
+
+        $data['tax04_estimated_amount_form'] = $fd->sum('tax04.tax04_estimated_amount_form');
+        $data['tax04_estimated_amount_money'] = $fd->sum('tax04.tax04_estimated_amount_money');
+        $data['tax04_accept_payment_form'] = $fd->sum('tax04.tax04_accept_payment_form');
+        $data['tax04_accept_payment_money'] = $fd->sum('tax04.tax04_accept_payment_money');
+        $data['tax04_accounts_receivable_brought_forward_form'] = $fd->sum('tax04.tax04_accounts_receivable_brought_forward_form');
+        $data['tax04_accounts_receivable_brought_forward_money'] = $fd->sum('tax04.tax04_accounts_receivable_brought_forward_money');
+        $data['tax04_accounts_receivable_accept_payment_form'] = $fd->sum('tax04.tax04_accounts_receivable_accept_payment_form');
+        $data['tax04_accounts_receivable_accept_payment_money'] = $fd->sum('tax04.tax04_accounts_receivable_accept_payment_money');
+        $data['tax04_accept_payment_monthly_form'] = $fd->sum('tax04.tax04_accept_payment_monthly_form');
+        $data['tax04_accept_payment_monthly_money'] = $fd->sum('tax04.tax04_accept_payment_monthly_money');
 
         return $data;
 
