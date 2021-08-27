@@ -165,7 +165,7 @@ class FormCountController extends CrudController
         $fc->save();
 
 
-        return \redirect(Redirect::redirect($request->input('save_action'), null, 'form-count'));
+        return \redirect(Redirect::redirect('save_and_back', null, 'form-count'));
     }
 
     /**

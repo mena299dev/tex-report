@@ -185,7 +185,7 @@ class FD0203Controller extends CrudController
         $fd->save();
 
 
-        return \redirect(Redirect::redirect($request->input('save_action'),null,'fd-02-3'));
+        return \redirect(Redirect::redirect('save_and_back',null,'fd-02-3'));
     }
 
     /**

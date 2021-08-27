@@ -60,8 +60,6 @@ class FD01Controller extends CrudController
             ->where('district_office_id', $selected_district)
             ->first();
 
-        \Log::debug($selected_year);
-        \Log::debug($selected_district);
 
         $data['title'] = 'รายงาน สนค.01';
         $data['district'] = $district_list;
