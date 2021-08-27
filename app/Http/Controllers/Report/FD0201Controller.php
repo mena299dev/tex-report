@@ -34,12 +34,13 @@ class FD0201Controller extends CrudController
     {
         $user = backpack_user();
         $selected_month = $request->input('on_month') ?? Carbon::now()->month;
-        $selected_year = $request->input('on_year') ?? Carbon::now()->year;
+        $selected_year = $request->input('on_year') ?? Carbon::now()->addYear(543)->year;
         $selected_district = $request->input('district') ?? $user->district_code;
 
         $fd = FD0201::where('year', $selected_year)
             ->where('month', $selected_month)
             ->where('district_office_id', $selected_district)
+            ->orderBy('sequence','asc')
             ->get();
 
         $month_list[0] = 'กรุณาเลือกเดือน';

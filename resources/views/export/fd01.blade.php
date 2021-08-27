@@ -113,7 +113,7 @@
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax01_accept_payment_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax01_accounts_receivable_brought_forward_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax01_accounts_receivable_brought_forward_form'])}}</td>
-                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax01_accounts_receivable_brought_forward_form'] - $cumulative_year['tax01_accounts_receivable_brought_forward_form'])}}</td>
+                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax01_accounts_receivable_brought_forward_form'] - $fd['tax01_accounts_receivable_accept_payment_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax01_accept_payment_monthly_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax01_accept_payment_monthly_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse"
@@ -126,7 +126,7 @@
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax01_accept_payment_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax01_accounts_receivable_brought_forward_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax01_accounts_receivable_brought_forward_money'],2)}}</td>
-                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax01_accounts_receivable_brought_forward_money'] - $cumulative_year['tax01_accounts_receivable_brought_forward_money'],2)}}</td>
+                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax01_accounts_receivable_brought_forward_money'] - $fd['tax01_accounts_receivable_accept_payment_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax01_accept_payment_monthly_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax01_accept_payment_monthly_money'],2)}}</td>
             </tr>
@@ -188,7 +188,7 @@
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax02_accept_payment_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax02_accounts_receivable_brought_forward_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax02_accounts_receivable_brought_forward_form'])}}</td>
-                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax02_accounts_receivable_brought_forward_form'] - $cumulative_year['tax02_accounts_receivable_brought_forward_form'])}}</td>
+                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax02_accounts_receivable_brought_forward_form'] - $fd['tax02_accounts_receivable_accept_payment_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax02_accept_payment_monthly_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax02_accept_payment_monthly_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse"
@@ -201,7 +201,7 @@
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax02_accept_payment_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax02_accounts_receivable_brought_forward_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax02_accounts_receivable_brought_forward_money'],2)}}</td>
-                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax02_accounts_receivable_brought_forward_money'] - $cumulative_year['tax02_accounts_receivable_brought_forward_money'],2)}}</td>
+                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax02_accounts_receivable_brought_forward_money'] - $fd['tax02_accounts_receivable_accept_payment_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax02_accept_payment_monthly_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax02_accept_payment_monthly_money'],2)}}</td>
             </tr>
@@ -263,7 +263,7 @@
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accept_payment_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accounts_receivable_brought_forward_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax03_accounts_receivable_brought_forward_form'])}}</td>
-                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accounts_receivable_brought_forward_form'] - $cumulative_year['tax03_accounts_receivable_brought_forward_form'])}}</td>
+                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accounts_receivable_brought_forward_form'] - $fd['tax03_accounts_receivable_accept_payment_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accept_payment_monthly_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax03_accept_payment_monthly_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse"
@@ -276,7 +276,7 @@
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accept_payment_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accounts_receivable_brought_forward_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax03_accounts_receivable_brought_forward_money'],2)}}</td>
-                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accounts_receivable_brought_forward_money'] - $cumulative_year['tax03_accounts_receivable_brought_forward_money'],2)}}</td>
+                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accounts_receivable_brought_forward_money'] - $fd['tax01_accounts_receivable_accept_payment_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accept_payment_monthly_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax03_accept_payment_monthly_money'],2)}}</td>
             </tr>
@@ -340,7 +340,7 @@
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax04_accept_payment_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax04_accounts_receivable_brought_forward_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax04_accounts_receivable_brought_forward_form'])}}</td>
-                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax04_accounts_receivable_brought_forward_form'] - $cumulative_year['tax04_accounts_receivable_brought_forward_form'])}}</td>
+                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax04_accounts_receivable_brought_forward_form'] - $fd['tax04_accounts_receivable_accept_payment_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax04_accept_payment_monthly_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax04_accept_payment_monthly_form'])}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse"
@@ -353,7 +353,7 @@
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax04_accept_payment_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax04_accounts_receivable_brought_forward_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax04_accounts_receivable_brought_forward_money'],2)}}</td>
-                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax04_accounts_receivable_brought_forward_money'] - $cumulative_year['tax04_accounts_receivable_brought_forward_money'],2)}}</td>
+                <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax04_accounts_receivable_brought_forward_money'] - $fd['tax04_accounts_receivable_accept_payment_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax04_accept_payment_monthly_money'],2)}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{number_format($cumulative_year['tax04_accept_payment_monthly_money'],2)}}</td>
             </tr>

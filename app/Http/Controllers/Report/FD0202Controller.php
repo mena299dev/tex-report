@@ -34,7 +34,7 @@ class FD0202Controller extends CrudController
     {
         $user = backpack_user();
         $selected_month = $request->input('on_month') ?? Carbon::now()->month;
-        $selected_year = $request->input('on_year') ?? Carbon::now()->year;
+        $selected_year = $request->input('on_year') ?? Carbon::now()->addYear(543)->year;
         $selected_district = $request->input('district') ?? $user->district_code;
 
         $fd = FD0202::where('year', $selected_year)

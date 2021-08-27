@@ -68,7 +68,7 @@ class FD01Controller extends CrudController
         $data['selected'] = [
             "selected_month" => $selected_month != 0 ? DateList::getMonth($selected_month) : null,
             "selected_month_short" => $selected_month != 0 ? DateList::getMonthShort($selected_month) : null,
-            "selected_year" => $iniYearTax ?? null,
+            "selected_year" => $selected_year ?? null,
             "selected_year_short" => Str::substr($iniYearTax, -2, 2) ?? null,
             "selected_district" => $selected_district != 0 ? DistrictList::getDistrictName($selected_district)[$selected_district] : null
         ];
