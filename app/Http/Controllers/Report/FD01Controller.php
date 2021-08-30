@@ -66,6 +66,7 @@ class FD01Controller extends CrudController
         $data['month_list'] = $month_list;
         $data['year_list'] = $year_list;
         $data['selected'] = [
+            "selected_month_number" => $selected_month,
             "selected_month" => $selected_month != 0 ? DateList::getMonth($selected_month) : null,
             "selected_month_short" => $selected_month != 0 ? DateList::getMonthShort($selected_month) : null,
             "selected_year" => $selected_year ?? null,
@@ -184,8 +185,8 @@ class FD01Controller extends CrudController
             'cumulative_year' => $data['cumulative_year'],
             'initiation_year_tax' => $InitiationYearTax,
             'selected' => [
-                'selected_month' => $data['selected']['selected_month'],
-                'selected_month_short' => $data['selected']['selected_month'] != 0 ? DateList::getMonthShort($data['selected']['selected_month']) : null,
+                'selected_month' => $data['selected']['selected_month_number'],
+                'selected_month_short' => $data['selected']['selected_month_number'] != 0 ? DateList::getMonthShort($data['selected']['selected_month_number']) : null,
                 'selected_year' => $data['selected']['selected_year'],
                 'selected_year_short' => Str::substr($data['selected']['selected_year'], -2, 2) ?? null,
                 'selected_district' => $data['selected']['selected_district']]
