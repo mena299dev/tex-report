@@ -177,8 +177,8 @@ class FD0203Controller extends CrudController
         $fd->tax_amount = $request->input('tax_amount');
         $fd->increment_amount = $request->input('increment_amount');
         $fd->receive_number = $request->input('receive_number');
-        $fd->date_of_notice = Carbon::parse($request->input('date_of_notice_selected'))->addYear(-543);
-        $fd->date_of_payment = Carbon::parse($request->input('date_of_payment_selected'))->addYear(-543);
+        $fd->date_of_notice_str = $request->input('date_of_notice_str');
+        $fd->date_of_payment_str = $request->input('date_of_payment_str');
         $fd->remark = $request->input('remark');
         $fd->created_at = Carbon::now();
         $fd->updated_at = Carbon::now();
@@ -211,8 +211,8 @@ class FD0203Controller extends CrudController
         $fd->tax_amount = $request->input('tax_amount');
         $fd->increment_amount = $request->input('increment_amount');
         $fd->receive_number = $request->input('receive_number');
-        $fd->date_of_notice = Carbon::parse($request->input('date_of_notice_selected'))->addYear(-543);
-        $fd->date_of_payment = Carbon::parse($request->input('date_of_payment_selected'))->addYear(-543);
+        $fd->date_of_notice_str = $request->input('date_of_notice_str');
+        $fd->date_of_payment_str = $request->input('date_of_payment_str');
         $fd->remark = $request->input('remark');
         $fd->created_at = Carbon::now();
         $fd->updated_at = Carbon::now();
@@ -298,26 +298,14 @@ class FD0203Controller extends CrudController
                 'type' => 'text',
             ],
             [
-                'name' => 'date_of_notice',
+                'name' => 'date_of_notice_str',
                 'label' => 'วันที่รับใบแจ้ง',
-                'type' => 'date_picker_th',
-
-                'date_picker_options' => [
-                    'todayBtn' => 'false',
-                    'format' => 'dd-mm-yyyy',
-                    'language' => 'th',
-                ],
+                'type' => 'text',
             ],
             [
-                'name' => 'date_of_payment',
+                'name' => 'date_of_payment_str',
                 'label' => 'วันที่รับชำระ',
-                'type' => 'date_picker_th',
-
-                'date_picker_options' => [
-                    'todayBtn' => 'false',
-                    'format' => 'dd-mm-yyyy',
-                    'language' => 'th',
-                ],
+                'type' => 'text',
             ],
             [
                 'name' => 'remark',

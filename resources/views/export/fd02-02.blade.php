@@ -85,8 +85,8 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{number_format($data['increment_amount'] ,2)?? null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{number_format($data['tax_amount'] + $data['increment_amount'] ,2)?? null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{$data['surveying_number'] ?? null}}</td>
-                    <td style="border: 1px solid black;border-collapse: collapse">{{$data['date_of_notice'] ?\Carbon\Carbon::parse($data['date_of_notice'])->addYear(543)->toDateString() : null}}</td>
-                    <td style="border: 1px solid black;border-collapse: collapse">{{$data['date_of_payment'] ?\Carbon\Carbon::parse($data['date_of_payment'])->addYear(543)->toDateString() : null}}</td>
+                    <td style="border: 1px solid black;border-collapse: collapse">{{$data['date_of_notice'] ??  null}}</td>
+                    <td style="border: 1px solid black;border-collapse: collapse">{{$data['date_of_payment'] ??  null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{$data['remark'] ?? null}}</td>
                 </tr>
             @endforeach
