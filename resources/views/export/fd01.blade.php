@@ -162,11 +162,14 @@
             <th style="border: 1px solid black;border-collapse: collapse" colspan="3">
                 ยอดรวมแบบตั้งแต่ต้นปีงบประมาณ(รับไว้ {{isset($cumulative_year['tax02_estimated_amount_form']) ? number_format($cumulative_year['tax02_estimated_amount_form']) : null}}
                 ราย ประเมินแล้ว
-                {{isset($cumulative_year['tax02_estimated_amount_form']) ? number_format($cumulative_year['tax02_estimated_amount_form']) : null}} ราย)
+                {{isset($cumulative_year['tax02_estimated_amount_form']) ? number_format($cumulative_year['tax02_estimated_amount_form']) : null}}
+                ราย)
             </th>
             <th style="border: 1px solid black;border-collapse: collapse" colspan="3">
                 ลูกหนี้ค้างชำระ(ยอดลูกหนี้ {{isset($fd['tax02_accounts_receivable_brought_forward_form']) ? number_format($fd['tax02_accounts_receivable_brought_forward_form']) : null}}
-                ราย เป็นเงิน {{isset($fd['tax02_accounts_receivable_brought_forward_money']) ? number_format($fd['tax02_accounts_receivable_brought_forward_money'],2) : null}} บาท)
+                ราย
+                เป็นเงิน {{isset($fd['tax02_accounts_receivable_brought_forward_money']) ? number_format($fd['tax02_accounts_receivable_brought_forward_money'],2) : null}}
+                บาท)
             </th>
             <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ บาท
             </th>
@@ -255,11 +258,14 @@
             <th style="border: 1px solid black;border-collapse: collapse" colspan="3">
                 ยอดรวมแบบตั้งแต่ต้นปีงบประมาณ(รับไว้ {{isset($cumulative_year['tax03_estimated_amount_form']) ? number_format($cumulative_year['tax03_estimated_amount_form']) : null}}
                 ราย ประเมินแล้ว
-                {{isset($cumulative_year['tax03_estimated_amount_form']) ? number_format($cumulative_year['tax03_estimated_amount_form']) : null}} ราย)
+                {{isset($cumulative_year['tax03_estimated_amount_form']) ? number_format($cumulative_year['tax03_estimated_amount_form']) : null}}
+                ราย)
             </th>
             <th style="border: 1px solid black;border-collapse: collapse" colspan="3">
                 ลูกหนี้ค้างชำระ(ยอดลูกหนี้ {{isset($fd['tax03_accounts_receivable_brought_forward_form']) ? number_format($fd['tax03_accounts_receivable_brought_forward_form']) : null}}
-                ราย เป็นเงิน {{isset($fd['tax03_accounts_receivable_brought_forward_money']) ? number_format($fd['tax03_accounts_receivable_brought_forward_money'],2): null}} บาท)
+                ราย
+                เป็นเงิน {{isset($fd['tax03_accounts_receivable_brought_forward_money']) ? number_format($fd['tax03_accounts_receivable_brought_forward_money'],2): null}}
+                บาท)
             </th>
             <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ บาท
             </th>
@@ -350,11 +356,14 @@
             <th style="border: 1px solid black;border-collapse: collapse" colspan="3">
                 ยอดรวมแบบตั้งแต่ต้นปีงบประมาณ(รับไว้ {{isset($cumulative_year['tax04_estimated_amount_form']) ? number_format($cumulative_year['tax04_estimated_amount_form']) : null}}
                 ราย ประเมินแล้ว
-                {{isset($cumulative_year['tax04_estimated_amount_form']) ? number_format($cumulative_year['tax04_estimated_amount_form']) : null}} ราย)
+                {{isset($cumulative_year['tax04_estimated_amount_form']) ? number_format($cumulative_year['tax04_estimated_amount_form']) : null}}
+                ราย)
             </th>
             <th style="border: 1px solid black;border-collapse: collapse" colspan="3">
                 ลูกหนี้ค้างชำระ(ยอดลูกหนี้ {{isset($fd['tax04_accounts_receivable_brought_forward_form']) ? number_format($fd['tax04_accounts_receivable_brought_forward_form']) : null}}
-                ราย เป็นเงิน {{isset($fd['tax04_accounts_receivable_brought_forward_money']) ? number_format($fd['tax04_accounts_receivable_brought_forward_money'],2): null}} บาท)
+                ราย
+                เป็นเงิน {{isset($fd['tax04_accounts_receivable_brought_forward_money']) ? number_format($fd['tax04_accounts_receivable_brought_forward_money'],2): null}}
+                บาท)
             </th>
             <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ บาท
             </th>
@@ -463,7 +472,7 @@
             <th style="border: 1px solid black;border-collapse: collapse">{{isset($initiation_year_tax['tax03']) ? number_format($initiation_year_tax['tax03'],2) : null}}</th>
             <th style="border: 1px solid black;border-collapse: collapse">{{isset($initiation_year_tax['tax04']) ? number_format($initiation_year_tax['tax04'],2) : null}}</th>
             @if(isset($initiation_year_tax['tax01']) && isset($initiation_year_tax['tax02']) && isset($initiation_year_tax['tax03']) && isset($initiation_year_tax['tax04']) )
-            <th style="border: 1px solid black;border-collapse: collapse">{{number_format($initiation_year_tax['tax01'] + $initiation_year_tax['tax02'] + $initiation_year_tax['tax03'] + $initiation_year_tax['tax04'],2)}}</th>
+                <th style="border: 1px solid black;border-collapse: collapse">{{number_format($initiation_year_tax['tax01'] + $initiation_year_tax['tax02'] + $initiation_year_tax['tax03'] + $initiation_year_tax['tax04'],2)}}</th>
             @else
                 <th style="border: 1px solid black;border-collapse: collapse"></th>
             @endif
@@ -486,10 +495,31 @@
         </tr>
         <tr>
             <th style="border: 1px solid black;border-collapse: collapse">คิดเป็นร้อยละของการประมาณการ</th>
-            <th style="border: 1px solid black;border-collapse: collapse">{{$initiation_year_tax['tax01'] != 0 || $initiation_year_tax['tax01'] !== null ? number_format(($cumulative_year['tax01_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax01'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
-            <th style="border: 1px solid black;border-collapse: collapse">{{$initiation_year_tax['tax02'] != 0 || $initiation_year_tax['tax02'] !== null ? number_format(($cumulative_year['tax02_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax02'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
-            <th style="border: 1px solid black;border-collapse: collapse">{{$initiation_year_tax['tax03'] != 0 || $initiation_year_tax['tax03'] !== null ? number_format(($cumulative_year['tax03_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax03'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
-            <th style="border: 1px solid black;border-collapse: collapse">{{$initiation_year_tax['tax04'] != 0 || $initiation_year_tax['tax04'] !== null ? number_format(($cumulative_year['tax04_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax04'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
+            @if(isset($initiation_year_tax['tax01']))
+                <th style="border: 1px solid black;border-collapse: collapse">{{$initiation_year_tax['tax01'] != 0 || $initiation_year_tax['tax01'] !== null ? number_format(($cumulative_year['tax01_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax01'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
+            @else
+                <th style="border: 1px solid black;border-collapse: collapse">ไม่มีค่าตั้งต้น</th>
+            @endif
+
+            @if(isset($initiation_year_tax['tax02']))
+                <th style="border: 1px solid black;border-collapse: collapse">{{$initiation_year_tax['tax02'] != 0 || $initiation_year_tax['tax02'] !== null ? number_format(($cumulative_year['tax02_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax02'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
+            @else
+                <th style="border: 1px solid black;border-collapse: collapse">ไม่มีค่าตั้งต้น</th>
+            @endif
+
+            @if(isset($initiation_year_tax['tax03']))
+                <th style="border: 1px solid black;border-collapse: collapse">{{$initiation_year_tax['tax03'] != 0 || $initiation_year_tax['tax03'] !== null ? number_format(($cumulative_year['tax03_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax03'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
+            @else
+                <th style="border: 1px solid black;border-collapse: collapse">ไม่มีค่าตั้งต้น</th>
+            @endif
+
+            @if(isset($initiation_year_tax['tax04']))
+                <th style="border: 1px solid black;border-collapse: collapse">{{$initiation_year_tax['tax04'] != 0 || $initiation_year_tax['tax04'] !== null ? number_format(($cumulative_year['tax04_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax04'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
+            @else
+                <th style="border: 1px solid black;border-collapse: collapse">ไม่มีค่าตั้งต้น</th>
+            @endif
+
+
             <th style="border: 1px solid black;border-collapse: collapse"></th>
         </tr>
         </tbody>
