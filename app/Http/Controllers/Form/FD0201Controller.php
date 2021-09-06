@@ -160,7 +160,7 @@ class FD0201Controller extends CrudController
      */
     public function store(Request $request)
     {
-       return $user = backpack_user();
+        $user = backpack_user();
         $fd = new FD0201();
         $fd->sequence = $request->input('sequence');
         $fd->district_office_name = $user->name;
