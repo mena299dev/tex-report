@@ -84,7 +84,7 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{number_format($data['fine_amount'] ,2)?? null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{number_format($data['tax_amount'] + $data['fine_amount'] ,2)?? null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{$data['book_number'] ?? null}}</td>
-                    <td style="border: 1px solid black;border-collapse: collapse">{{$data['date_of_payment'] ??  null}}</td>
+                    <td style="border: 1px solid black;border-collapse: collapse">{{$data['date_of_payment_str'] ??  null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{$data['remark'] ?? null}}</td>
                 </tr>
             @endforeach
