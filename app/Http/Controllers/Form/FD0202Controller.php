@@ -167,7 +167,7 @@ class FD0202Controller extends CrudController
         $user = backpack_user();
         $fd = new FD0202();
         $fd->sequence = $request->input('sequence');
-        $fd->district_office_name = $user->username;
+        $fd->district_office_name = $user->name;
         $fd->district_office_id = $user->district_code;
         $fd->month = $request->input('on_month');
         $fd->year = $request->input('on_year');
@@ -201,7 +201,7 @@ class FD0202Controller extends CrudController
             return 'error id not found';
         }
         $fd->sequence = $request->input('sequence');
-        $fd->district_office_name = $user->username;
+        $fd->district_office_name = $user->name;
         $fd->district_office_id = $user->district_code;
         $fd->month = $request->input('on_month');
         $fd->year = $request->input('on_year');

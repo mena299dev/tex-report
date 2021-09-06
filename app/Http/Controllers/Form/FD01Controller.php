@@ -129,7 +129,7 @@ class FD01Controller extends CrudController
         $user = backpack_user();
 
         $fd = new FD01();
-        $fd->district_office_name = $request->input('district') ?? $user->username;
+        $fd->district_office_name = $request->input('district') ?? $user->name;
         $fd->district_office_id = $user->district_code;
         $fd->month = $request->input('on_month');
         $fd->year = $request->input('on_year');
@@ -155,7 +155,7 @@ class FD01Controller extends CrudController
         }
         $json = self::prepareJson($request);
 
-        $fd->district_office_name = $request->input('district') ?? $user->username;
+        $fd->district_office_name = $request->input('district') ?? $user->name;
         $fd->district_office_id = $user->district_code;
         $fd->month = $request->input('on_month');
         $fd->year = $request->input('on_year');

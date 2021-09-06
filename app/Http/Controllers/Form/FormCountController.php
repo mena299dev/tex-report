@@ -154,7 +154,7 @@ class FormCountController extends CrudController
 
         $user = backpack_user();
         $fc = new FormCount();
-        $fc->district_office_name = $user->username;
+        $fc->district_office_name = $user->name;
         $fc->district_office_id = $user->district_code;
         $fc->month = $request->input('on_month');
         $fc->year = $request->input('on_year');
@@ -203,7 +203,7 @@ class FormCountController extends CrudController
         $json_data['tax04']['tax04_tax_customer'] =  $request->input('tax04_tax_customer') ?? 0;
 
         $user = backpack_user();
-        $fc->district_office_name = $user->username;
+        $fc->district_office_name = $user->name;
         $fc->district_office_id = $user->district_code;
         $fc->month = $request->input('on_month');
         $fc->year = $request->input('on_year');

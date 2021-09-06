@@ -45,8 +45,8 @@ class FD0201Controller extends CrudController
                 'type' => 'text',
             ],
             [
-                'name' => 'district_office_id',
-                'label' => 'รหัสแขวง',
+                'name' => 'district_office_name',
+                'label' => 'เขต',
                 'type' => 'text',
             ],
             [
@@ -160,10 +160,10 @@ class FD0201Controller extends CrudController
      */
     public function store(Request $request)
     {
-        $user = backpack_user();
+       return $user = backpack_user();
         $fd = new FD0201();
         $fd->sequence = $request->input('sequence');
-        $fd->district_office_name = $user->username;
+        $fd->district_office_name = $user->name;
         $fd->district_office_id = $user->district_code;
         $fd->month = $request->input('on_month');
         $fd->year = $request->input('on_year');
@@ -196,7 +196,7 @@ class FD0201Controller extends CrudController
             return 'error id not found';
         }
         $fd->sequence = $request->input('sequence');
-        $fd->district_office_name = $user->username;
+        $fd->district_office_name = $user->name;
         $fd->district_office_id = $user->district_code;
         $fd->month = $request->input('on_month');
         $fd->year = $request->input('on_year');
