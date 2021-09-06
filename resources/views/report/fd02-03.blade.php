@@ -14,6 +14,19 @@
                 @endforeach
             </select>
             @endrole
+
+            @role('Central')
+            <select name="district" id="district" style="width: 15%">
+                @foreach ($district as $key => $value)
+                    @if(request('district') == $key)
+                        <option value="{{ $key }}" selected>{{ $value }}</option>
+                    @else
+                        <option value="{{ $key }}">{{ $value }}</option>
+                    @endif
+                @endforeach
+            </select>
+            @endrole
+
             <select name="on_month" id="on_month" style="width: 15%">
                 @foreach ($month_list as $key => $value)
                     @if(request('on_month') == $key)
