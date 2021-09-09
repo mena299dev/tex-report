@@ -88,7 +88,7 @@
                 <th style="border: 1px solid black;border-collapse: collapse">จำนวนเงิน ค่าภาษี</th>
                 <th style="border: 1px solid black;border-collapse: collapse">จำนวนเงิน ค่าเพิ่ม</th>
                 <th style="border: 1px solid black;border-collapse: collapse">จำนวนเงิน รวม</th>
-                <th style="border: 1px solid black;border-collapse: collapse">เลขสำรวจ</th>
+                <th style="border: 1px solid black;border-collapse: collapse">เลขที่ออกหนังสือ</th>
                 <th style="border: 1px solid black;border-collapse: collapse">วันที่รับชำระ</th>
                 <th style="border: 1px solid black;border-collapse: collapse">หมายเหตุ</th>
             </tr>
