@@ -60,7 +60,6 @@ class FD01Controller extends CrudController
             ->where('district_office_id', $selected_district)
             ->first();
 
-
         $data['title'] = 'รายงาน สนค.01';
         $data['district'] = $district_list;
         $data['month_list'] = $month_list;
@@ -70,12 +69,12 @@ class FD01Controller extends CrudController
             "selected_month" => $selected_month != 0 ? DateList::getMonth($selected_month) : null,
             "selected_month_short" => $selected_month != 0 ? DateList::getMonthShort($selected_month) : null,
             "selected_year" => $selected_year ?? null,
-            "selected_year_short" => Str::substr($iniYearTax, -2, 2) ?? null,
+            "selected_year_short" => Str::substr($selected_year, -2, 2) ?? null,
             "selected_district" => $selected_district != 0 ? DistrictList::getDistrictName($selected_district)[$selected_district] : null
         ];
 
         $data['fd'] = $fd;
-        $data['cumulative_year'] = $this->getCumulativeByYear($iniYearTax, $selected_month, $selected_district);
+        $data['cumulative_year'] = $this->getCumulativeByYear($selected_year, $selected_month, $selected_district);
         $data['initiation_year_tax'] = $InitiationYearTax;
 
 
@@ -100,12 +99,15 @@ class FD01Controller extends CrudController
     { // 1 รอบปีงบ ตุลาปีก่อนหน้า 10  ถึง กันยาปีปัจจุบัน(ปีที่เลือก) 9
         $user = backpack_user();
         $selected_district = $selected_district ?? $user->district_code;
-        $previous_year = $year - 1;
         $select_month = $select_month === null ? Carbon::now()->addMonth(-1)->month : $select_month;
+        $previous_year = $select_month >= 10 ? $year : $year - 1;
+        $int_month = $select_month >= 10 ? $select_month : 12;
+
 
         $fd_data = FD01::select('*')
-            ->where(function ($q) use ($previous_year) {
+            ->where(function ($q) use ($previous_year,$int_month) {
                 $q->where('month', '>=', 10);
+                $q->where('month', '<=', $int_month);
                 $q->where('year', '=', $previous_year);
             })
             ->orWhere(function ($q) use ($year, $select_month) {

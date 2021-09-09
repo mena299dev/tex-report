@@ -124,9 +124,10 @@
 
                 <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax01_accept_payment_monthly_form']) ? number_format($fd['tax01_accept_payment_monthly_form']) : null}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax01_accept_payment_monthly_form']) ? number_format($cumulative_year['tax01_accept_payment_monthly_form']) : null}}</td>
-                @if(isset($initiation_year_tax['tax01']) && isset($cumulative_year['tax01_accept_payment_monthly_money']))
+                @if(isset($fd['tax01_estimated_amount_money']) && isset($cumulative_year['tax01_accept_payment_monthly_money']))
                     <td style="border: 1px solid black;border-collapse: collapse"
-                        rowspan="2">{{number_format($initiation_year_tax['tax01'] - $cumulative_year['tax01_accept_payment_monthly_money'],2)}}</td>
+                        rowspan="2">
+                        {{number_format($fd['tax01_estimated_amount_money'] - $cumulative_year['tax01_accept_payment_monthly_money'],2)}}</td>
                 @else
                     <td style="border: 1px solid black;border-collapse: collapse"
                         rowspan="2"></td>
@@ -219,12 +220,13 @@
                 <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax02_accept_payment_monthly_form']) ? number_format($fd['tax02_accept_payment_monthly_form']) : null}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax02_accept_payment_monthly_form']) ? number_format($cumulative_year['tax02_accept_payment_monthly_form']) : null}}</td>
 
-                @if(isset($initiation_year_tax['tax02']) && isset($cumulative_year['tax02_accept_payment_monthly_money']))
-                    <td style="border: 1px solid black;border-collapse: collapse"
-                        rowspan="2">{{number_format($initiation_year_tax['tax02'] - $cumulative_year['tax02_accept_payment_monthly_money'],2)}}</td>
-                @else
+                @if(isset($fd['tax02_estimated_amount_money']) && isset($cumulative_year['tax02_accept_payment_monthly_money']))
                     <td style="border: 1px solid black;border-collapse: collapse"
                         rowspan="2">
+                        {{number_format($fd['tax02_estimated_amount_money'] - $cumulative_year['tax02_accept_payment_monthly_money'],2)}}</td>
+                @else
+                    <td style="border: 1px solid black;border-collapse: collapse"
+                        rowspan="2"></td>
                 @endif
 
             </tr>
@@ -416,12 +418,13 @@
                 <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax04_accept_payment_monthly_form']) ? number_format($fd['tax04_accept_payment_monthly_form']) : null}}</td>
                 <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax04_accept_payment_monthly_form']) ? number_format($cumulative_year['tax04_accept_payment_monthly_form']) : null}}</td>
 
-                @if(isset($initiation_year_tax['tax04']) && isset($cumulative_year['tax04_accept_payment_monthly_money']))
-                    <td style="border: 1px solid black;border-collapse: collapse"
-                        rowspan="2">{{number_format($initiation_year_tax['tax04'] - $cumulative_year['tax04_accept_payment_monthly_money'],2)}}</td>
-                @else
+                @if(isset($fd['tax04_estimated_amount_money']) && isset($cumulative_year['tax04_accept_payment_monthly_money']))
                     <td style="border: 1px solid black;border-collapse: collapse"
                         rowspan="2">
+                        {{number_format($fd['tax04_estimated_amount_money'] - $cumulative_year['tax04_accept_payment_monthly_money'],2)}}</td>
+                @else
+                    <td style="border: 1px solid black;border-collapse: collapse"
+                        rowspan="2"></td>
                 @endif
 
             </tr>

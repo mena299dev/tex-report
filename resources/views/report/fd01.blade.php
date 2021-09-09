@@ -145,15 +145,15 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax01_accept_payment_monthly_form']) ? number_format($fd['tax01_accept_payment_monthly_form']) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax01_accept_payment_monthly_form']) ? number_format($cumulative_year['tax01_accept_payment_monthly_form']) : $cumulative_year['tax01_accept_payment_monthly_form']}}</td>
 
-                    @if(isset($initiation_year_tax['tax01']) && isset($cumulative_year['tax01_accept_payment_monthly_form']))
+                    @if(isset($fd['tax01_estimated_amount_money']) && isset($cumulative_year['tax01_accept_payment_monthly_money']))
                         <td style="border: 1px solid black;border-collapse: collapse"
                             rowspan="2">
-
-                            {{number_format($initiation_year_tax['tax01'] - $cumulative_year['tax01_accept_payment_monthly_form'],2)}}</td>
+                            {{number_format($fd['tax01_estimated_amount_money'] - $cumulative_year['tax01_accept_payment_monthly_money'],2)}}</td>
                     @else
                         <td style="border: 1px solid black;border-collapse: collapse"
                             rowspan="2"></td>
                     @endif
+
 
                 </tr>
                 <tr>
@@ -162,7 +162,7 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax01_estimated_amount_money']) ? number_format($cumulative_year['tax01_estimated_amount_money'],2) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax01_accept_payment_money']) ? number_format($fd['tax01_accept_payment_money'],2) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax01_accounts_receivable_brought_forward_money']) ? number_format($fd['tax01_accounts_receivable_brought_forward_money'],2) : null}}</td>
-                    <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax01_accounts_receivable_brought_forward_money']) ? number_format($cumulative_year['tax01_accounts_receivable_brought_forward_money'],2) : null}}</td>
+                    <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax01_accounts_receivable_accept_payment_money']) ? number_format($fd['tax01_accounts_receivable_accept_payment_money'],2) : null}}</td>
                     @if(isset($fd['tax01_accounts_receivable_brought_forward_money']) && isset($fd['tax01_accounts_receivable_accept_payment_money']))
                         <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax01_accounts_receivable_brought_forward_money'] - $fd['tax01_accounts_receivable_accept_payment_money'])}}</td>
                     @else
@@ -234,7 +234,7 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax02_estimated_amount_form']) ? number_format($cumulative_year['tax02_estimated_amount_form']): null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax02_accept_payment_form']) ? number_format($fd['tax02_accept_payment_form']) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax02_accounts_receivable_brought_forward_form']) ? number_format($fd['tax02_accounts_receivable_brought_forward_form']) : null}}</td>
-                    <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax02_accounts_receivable_brought_forward_form']) ? number_format($cumulative_year['tax02_accounts_receivable_brought_forward_form']) : null}}</td>
+                    <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax02_accounts_receivable_accept_payment_form']) ? number_format($fd['tax02_accounts_receivable_accept_payment_form']) : null}}</td>
                     @if(isset($fd['tax02_accounts_receivable_brought_forward_form']) && isset($fd['tax02_accounts_receivable_accept_payment_form']))
                         <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax02_accounts_receivable_brought_forward_form'] - $fd['tax02_accounts_receivable_accept_payment_form'])}}</td>
                     @else
@@ -242,11 +242,14 @@
                     @endif
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax02_accept_payment_monthly_form']) ? number_format($fd['tax02_accept_payment_monthly_form']) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax02_accept_payment_monthly_form']) ? number_format($cumulative_year['tax02_accept_payment_monthly_form']) : null}}</td>
-                    @if(isset($initiation_year_tax['tax02']) && isset($cumulative_year['tax02_accept_payment_monthly_money']))
+
+                    @if(isset($fd['tax02_estimated_amount_money']) && isset($cumulative_year['tax02_accept_payment_monthly_money']))
                         <td style="border: 1px solid black;border-collapse: collapse"
-                            rowspan="2">{{number_format($initiation_year_tax['tax02'] - $cumulative_year['tax02_accept_payment_monthly_money'],2)}}</td>
+                            rowspan="2">
+                            {{number_format($fd['tax02_estimated_amount_money'] - $cumulative_year['tax02_accept_payment_monthly_money'],2)}}</td>
                     @else
-                        <td style="border: 1px solid black;border-collapse: collapse" rowspan="2"></td>
+                        <td style="border: 1px solid black;border-collapse: collapse"
+                            rowspan="2"></td>
                     @endif
                 </tr>
                 <tr>
@@ -255,7 +258,7 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax02_estimated_amount_money']) ? number_format($cumulative_year['tax02_estimated_amount_money'],2) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax02_accept_payment_money']) ? number_format($fd['tax02_accept_payment_money'],2) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax02_accounts_receivable_brought_forward_money']) ? number_format($fd['tax02_accounts_receivable_brought_forward_money'],2) : null}}</td>
-                    <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax02_accounts_receivable_brought_forward_money']) ? number_format($cumulative_year['tax02_accounts_receivable_brought_forward_money'],2) : null}}</td>
+                    <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax02_accounts_receivable_accept_payment_money']) ? number_format($fd['tax02_accounts_receivable_accept_payment_money'],2) : null}}</td>
 
                     @if(isset($fd['tax02_accounts_receivable_brought_forward_money']) && isset($fd['tax02_accounts_receivable_accept_payment_money']))
                         <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax02_accounts_receivable_brought_forward_money'] - $fd['tax02_accounts_receivable_accept_payment_money'],2)}}</td>
@@ -327,7 +330,7 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax03_estimated_amount_form']) ? number_format($cumulative_year['tax03_estimated_amount_form']) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax03_accept_payment_form']) ? number_format($fd['tax03_accept_payment_form']) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax03_accounts_receivable_brought_forward_form']) ? number_format($fd['tax03_accounts_receivable_brought_forward_form']) : null}}</td>
-                    <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax03_accounts_receivable_brought_forward_form']) ? number_format($cumulative_year['tax03_accounts_receivable_brought_forward_form']) : null}}</td>
+                    <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax03_accounts_receivable_accept_payment_form']) ? number_format($fd['tax03_accounts_receivable_accept_payment_form']) : null}}</td>
                     @if(isset($fd['tax03_accounts_receivable_brought_forward_form']) && isset($fd['tax03_accounts_receivable_accept_payment_form']))
                         <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accounts_receivable_brought_forward_form'] - $fd['tax03_accounts_receivable_accept_payment_form'])}}</td>
                     @else
@@ -337,11 +340,13 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax03_accept_payment_monthly_form']) ? number_format($fd['tax03_accept_payment_monthly_form']) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax03_accept_payment_monthly_form']) ? number_format($cumulative_year['tax03_accept_payment_monthly_form']) : null}}</td>
 
-                    @if(isset($initiation_year_tax['tax03']) && isset($cumulative_year['tax03_accept_payment_monthly_money']))
+                    @if(isset($fd['tax03_estimated_amount_money']) && isset($cumulative_year['tax03_accept_payment_monthly_money']))
                         <td style="border: 1px solid black;border-collapse: collapse"
-                            rowspan="2">{{number_format($initiation_year_tax['tax03'] - $cumulative_year['tax03_accept_payment_monthly_money'],2)}}</td>
+                            rowspan="2">
+                            {{number_format($fd['tax03_estimated_amount_money'] - $cumulative_year['tax03_accept_payment_monthly_money'],2)}}</td>
                     @else
-                        <td style="border: 1px solid black;border-collapse: collapse" rowspan="2"></td>
+                        <td style="border: 1px solid black;border-collapse: collapse"
+                            rowspan="2"></td>
                     @endif
 
                 </tr>
@@ -351,7 +356,7 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax03_estimated_amount_money']) ? number_format($cumulative_year['tax03_estimated_amount_money'],2): null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax03_accept_payment_money']) ? number_format($fd['tax03_accept_payment_money'],2) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax03_accounts_receivable_brought_forward_money']) ? number_format($fd['tax03_accounts_receivable_brought_forward_money'],2) : null}}</td>
-                    <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax03_accounts_receivable_brought_forward_money']) ? number_format($cumulative_year['tax03_accounts_receivable_brought_forward_money'],2) : null}}</td>
+                    <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax03_accounts_receivable_accept_payment_money']) ? number_format($fd['tax03_accounts_receivable_accept_payment_money'],2) : null}}</td>
 
                     @if(isset($fd['tax03_accounts_receivable_brought_forward_money']) && isset($fd['tax01_accounts_receivable_accept_payment_money']))
                         <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accounts_receivable_brought_forward_money'] - $fd['tax01_accounts_receivable_accept_payment_money'],2)}}</td>
@@ -428,7 +433,7 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax04_estimated_amount_form']) ? number_format($cumulative_year['tax04_estimated_amount_form']): null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax04_accept_payment_form']) ? number_format($fd['tax04_accept_payment_form']) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax04_accounts_receivable_brought_forward_form']) ? number_format($fd['tax04_accounts_receivable_brought_forward_form']) : null}}</td>
-                    <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax04_accounts_receivable_brought_forward_form']) ? number_format($cumulative_year['tax04_accounts_receivable_brought_forward_form']) : null}}</td>
+                    <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax04_accounts_receivable_accept_payment_form']) ? number_format($fd['tax04_accounts_receivable_accept_payment_form']) : null}}</td>
 
                     @if(isset($fd['tax04_accounts_receivable_brought_forward_form']) && isset($fd['tax04_accounts_receivable_accept_payment_form']))
                         <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax04_accounts_receivable_brought_forward_form'] - $fd['tax04_accounts_receivable_accept_payment_form'])}}</td>
@@ -438,9 +443,10 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax04_accept_payment_monthly_form']) ? number_format($fd['tax04_accept_payment_monthly_form']) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax04_accept_payment_monthly_form']) ? number_format($cumulative_year['tax04_accept_payment_monthly_form']) : null}}</td>
 
-                    @if(isset($initiation_year_tax['tax04']) && isset($cumulative_year['tax04_accept_payment_monthly_money']) )
+                    @if(isset($fd['tax04_estimated_amount_money']) && isset($cumulative_year['tax04_accept_payment_monthly_money']))
                         <td style="border: 1px solid black;border-collapse: collapse"
-                            rowspan="2">{{number_format($initiation_year_tax['tax04'] - $cumulative_year['tax04_accept_payment_monthly_money'],2)}}</td>
+                            rowspan="2">
+                            {{number_format($fd['tax04_estimated_amount_money'] - $cumulative_year['tax04_accept_payment_monthly_money'],2)}}</td>
                     @else
                         <td style="border: 1px solid black;border-collapse: collapse"
                             rowspan="2"></td>
@@ -508,6 +514,7 @@
                 </div>
                 <th style="border: 1px solid black;border-collapse: collapse">{{isset($cum_year) ? number_format($cum_year,2) : null}}</th>
             </tr>
+
             <tr>
                 <th style="border: 1px solid black;border-collapse: collapse">คิดเป็นร้อยละของการประมาณการ</th>
                 <th style="border: 1px solid black;border-collapse: collapse">{{isset($initiation_year_tax['tax01']) && ($initiation_year_tax['tax01'] != 0 || $initiation_year_tax['tax01'] !== null) ? number_format(($cumulative_year['tax01_accept_payment_monthly_money'] * 100) / $initiation_year_tax['tax01'],2) : 'ไม่มีค่าตั้งต้น'}}</th>
