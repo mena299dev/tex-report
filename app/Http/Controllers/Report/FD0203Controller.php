@@ -52,7 +52,7 @@ class FD0203Controller extends CrudController
             $year_list[$y_key] = $y;
         }
 
-        $district_list[0] = 'กรุณาเลือกเลข';
+        $district_list[0] = 'กรุณาเลือกเขต';
         foreach (DistrictList::districtCode() as $d_key => $d) {
             $district_list[$d_key] = $d;
         }

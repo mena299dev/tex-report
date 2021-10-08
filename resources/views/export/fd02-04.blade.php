@@ -56,11 +56,11 @@
         <thead style="text-align:center;border: 1px solid black;border-collapse: collapse">
         <tr>
             <th style="border: 1px solid black;border-collapse: collapse">ลำดับ</th>
-            <th style="border: 1px solid black;border-collapse: collapse">แขวง</th>
             <th style="border: 1px solid black;border-collapse: collapse">รายชื่อผู้ค้างชำระ</th>
             <th style="border: 1px solid black;border-collapse: collapse">ปีที่ค้างชำระ</th>
             <th style="border: 1px solid black;border-collapse: collapse">จำนวนเงิน ค่าภาษี</th>
-            <th style="border: 1px solid black;border-collapse: collapse">จำนวนเงิน ค่าเพิ่ม</th>
+            <th style="border: 1px solid black;border-collapse: collapse">ค่าเบี้ย</th>
+            <th style="border: 1px solid black;border-collapse: collapse">ค่าเพิ่ม</th>
             <th style="border: 1px solid black;border-collapse: collapse">จำนวนเงิน รวม</th>
             <th style="border: 1px solid black;border-collapse: collapse">เลขที่ออกหนังสือ</th>
             <th style="border: 1px solid black;border-collapse: collapse">วันที่รับชำระ</th>
@@ -77,12 +77,12 @@
             @foreach($fd as $data)
                 <tr>
                     <td style="border: 1px solid black;border-collapse: collapse">{{$data['sequence'] ?? null}}</td>
-                    <td style="border: 1px solid black;border-collapse: collapse">{{$data['district'] ?? null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{$data['defaulter_name'] ?? null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{$data['defaulter_year'] ?? null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{number_format($data['tax_amount'] ,2)?? null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{number_format($data['fine_amount'] ,2)?? null}}</td>
-                    <td style="border: 1px solid black;border-collapse: collapse">{{number_format($data['tax_amount'] + $data['fine_amount'] ,2)?? null}}</td>
+                    <td style="border: 1px solid black;border-collapse: collapse">{{number_format($data['increment_amount'] ,2)?? null}}</td>
+                    <td style="border: 1px solid black;border-collapse: collapse">{{number_format($data['tax_amount'] + $data['fine_amount'] + $data['increment_amount'],2)?? null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{$data['book_number'] ?? null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{$data['date_of_payment_str'] ??  null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{$data['remark'] ?? null}}</td>

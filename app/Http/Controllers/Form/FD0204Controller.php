@@ -46,7 +46,7 @@ class FD0204Controller extends CrudController
             ],
             [
                 'name' => 'district_office_id',
-                'label' => 'รหัสแขวง',
+                'label' => 'รหัสเขต',
                 'type' => 'text',
             ],
             [

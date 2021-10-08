@@ -76,7 +76,7 @@
                 เป็นเงิน {{isset($fd['tax01_accounts_receivable_brought_forward_money']) ? number_format($fd['tax01_accounts_receivable_brought_forward_money'],2) : null}}
                 บาท)
             </th>
-            <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ บาท
+            <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ {{isset($initiation_year_tax['tax01']) ? number_format($initiation_year_tax['tax01'],2) : null}} บาท
             </th>
         </tr>
         <tr>
@@ -96,7 +96,7 @@
             <th style="border: 1px solid black;border-collapse: collapse">
                 รับชำระประจำเดือน {{$selected['selected_month_short']}} {{$selected['selected_year_short']}}</th>
             <th style="border: 1px solid black;border-collapse: collapse">รับตั้งแต่
-                ต.ค.{{$selected['selected_year_short']- 1}} - ต.ค.{{$selected['selected_year_short']}}</th>
+                ต.ค.{{$selected['selected_init_year_short']}} - ต.ค.{{$selected['selected_year_short']}}</th>
             <th style="border: 1px solid black;border-collapse: collapse">ประมาณการคงเหลือ</th>
         </tr>
         </thead>
@@ -172,7 +172,7 @@
                 เป็นเงิน {{isset($fd['tax02_accounts_receivable_brought_forward_money']) ? number_format($fd['tax02_accounts_receivable_brought_forward_money'],2) : null}}
                 บาท)
             </th>
-            <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ บาท
+            <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ {{isset($initiation_year_tax['tax02']) ? number_format($initiation_year_tax['tax02'],2) : null}} บาท
             </th>
         </tr>
         <tr>
@@ -192,7 +192,7 @@
             <th style="border: 1px solid black;border-collapse: collapse">
                 รับชำระประจำเดือน {{$selected['selected_month_short']}} {{$selected['selected_year_short']}}</th>
             <th style="border: 1px solid black;border-collapse: collapse">รับตั้งแต่
-                ต.ค.{{$selected['selected_year_short']- 1}} - ต.ค.{{$selected['selected_year_short']}}</th>
+                ต.ค.{{$selected['selected_init_year_short']}} - ต.ค.{{$selected['selected_year_short']}}</th>
             <th style="border: 1px solid black;border-collapse: collapse">ประมาณการคงเหลือ</th>
         </tr>
         </thead>
@@ -269,7 +269,7 @@
                 เป็นเงิน {{isset($fd['tax03_accounts_receivable_brought_forward_money']) ? number_format($fd['tax03_accounts_receivable_brought_forward_money'],2): null}}
                 บาท)
             </th>
-            <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ บาท
+            <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ {{isset($initiation_year_tax['tax03']) ? number_format($initiation_year_tax['tax03'],2) : null}} บาท
             </th>
         </tr>
         <tr>
@@ -289,7 +289,7 @@
             <th style="border: 1px solid black;border-collapse: collapse">
                 รับชำระประจำเดือน {{$selected['selected_month_short']}} {{$selected['selected_year_short']}}</th>
             <th style="border: 1px solid black;border-collapse: collapse">รับตั้งแต่
-                ต.ค.{{$selected['selected_year_short']- 1}} - ต.ค.{{$selected['selected_year_short']}}</th>
+                ต.ค.{{$selected['selected_init_year_short']}} - ต.ค.{{$selected['selected_year_short']}}</th>
             <th style="border: 1px solid black;border-collapse: collapse">ประมาณการคงเหลือ</th>
         </tr>
         </thead>
@@ -367,7 +367,7 @@
                 เป็นเงิน {{isset($fd['tax04_accounts_receivable_brought_forward_money']) ? number_format($fd['tax04_accounts_receivable_brought_forward_money'],2): null}}
                 บาท)
             </th>
-            <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ บาท
+            <th style="border: 1px solid black;border-collapse: collapse" colspan="3">ประมาณการรายรับตั้งไว้ {{isset($initiation_year_tax['tax04']) ? number_format($initiation_year_tax['tax04'],2) : null}} บาท
             </th>
         </tr>
         <tr>
@@ -387,7 +387,7 @@
             <th style="border: 1px solid black;border-collapse: collapse">
                 รับชำระประจำเดือน {{$selected['selected_month_short']}} {{$selected['selected_year_short']}}</th>
             <th style="border: 1px solid black;border-collapse: collapse">รับตั้งแต่
-                ต.ค.{{$selected['selected_year_short']- 1}} - ต.ค.{{$selected['selected_year_short']}}</th>
+                ต.ค.{{$selected['selected_init_year_short']}} - ต.ค.{{$selected['selected_year_short']}}</th>
             <th style="border: 1px solid black;border-collapse: collapse">ประมาณการคงเหลือ</th>
         </tr>
         </thead>

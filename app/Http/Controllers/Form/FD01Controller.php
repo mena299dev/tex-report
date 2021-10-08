@@ -42,7 +42,7 @@ class FD01Controller extends CrudController
         $this->crud->addColumns([
             [
                 'name' => 'district_office_id',
-                'label' => 'รหัสแขวง',
+                'label' => 'รหัสเขต',
                 'type' => 'text',
             ],
             [

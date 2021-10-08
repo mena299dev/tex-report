@@ -60,6 +60,8 @@ class FD01Controller extends CrudController
             ->where('district_office_id', $selected_district)
             ->first();
 
+        $init_year = $selected_month < 10 ? $selected_year - 1 : $selected_year;
+
         $data['title'] = 'รายงาน สนค.01';
         $data['district'] = $district_list;
         $data['month_list'] = $month_list;
@@ -70,6 +72,8 @@ class FD01Controller extends CrudController
             "selected_month_short" => $selected_month != 0 ? DateList::getMonthShort($selected_month) : null,
             "selected_year" => $selected_year ?? null,
             "selected_year_short" => Str::substr($selected_year, -2, 2) ?? null,
+            "selected_init_year" => $init_year ?? null,
+            "selected_init_year_short" => Str::substr($init_year, -2, 2) ?? null,
             "selected_district" => $selected_district != 0 ? DistrictList::getDistrictName($selected_district)[$selected_district] : null
         ];
 
