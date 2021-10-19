@@ -117,7 +117,7 @@
                 <th style="border: 1px solid black;border-collapse: collapse">
                     รับชำระประจำเดือน {{$selected['selected_month_short']}} {{$selected['selected_year_short']}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">รับตั้งแต่
-                    ต.ค.{{$selected['selected_init_year_short']}} - ต.ค.{{$selected['selected_year_short']}}</th>
+                    ต.ค.{{$selected['selected_init_year_short']}} - {{$selected['selected_month_short'] .' '. $selected['selected_year_short']}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">ประมาณการคงเหลือ</th>
             </tr>
             </thead>
@@ -145,10 +145,10 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax01_accept_payment_monthly_form']) ? number_format($fd['tax01_accept_payment_monthly_form']) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax01_accept_payment_monthly_form']) ? number_format($cumulative_year['tax01_accept_payment_monthly_form']) : $cumulative_year['tax01_accept_payment_monthly_form']}}</td>
 
-                    @if(isset($fd['tax01_estimated_amount_money']) && isset($cumulative_year['tax01_accept_payment_monthly_money']))
+                    @if(isset($initiation_year_tax['tax01']) && isset($cumulative_year['tax01_accept_payment_monthly_money']))
                         <td style="border: 1px solid black;border-collapse: collapse"
                             rowspan="2">
-                            {{number_format($fd['tax01_estimated_amount_money'] - $cumulative_year['tax01_accept_payment_monthly_money'],2)}}</td>
+                            {{number_format($initiation_year_tax['tax01'] - $cumulative_year['tax01_accept_payment_monthly_money'],2)}}</td>
                     @else
                         <td style="border: 1px solid black;border-collapse: collapse"
                             rowspan="2"></td>
@@ -176,7 +176,7 @@
             </tbody>
 
 
-            {{--                    tax02 ภาษีบำรุ้งท้องที่--}}
+            {{--                    tax02 ภาษีบำรุงท้องที่--}}
             <thead style="text-align:center;border: 1px solid black;border-collapse: collapse">
             <tr>
                 <th style="border: 1px solid black;border-collapse: collapse" rowspan="2">ลำดับที่</th>
@@ -216,7 +216,7 @@
                 <th style="border: 1px solid black;border-collapse: collapse">
                     รับชำระประจำเดือน {{$selected['selected_month_short']}} {{$selected['selected_year_short']}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">รับตั้งแต่
-                    ต.ค.{{$selected['selected_init_year_short']}} - ต.ค.{{$selected['selected_year_short']}}</th>
+                    ต.ค.{{$selected['selected_init_year_short']}} - {{$selected['selected_month_short'] .' '. $selected['selected_year_short']}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">ประมาณการคงเหลือ</th>
             </tr>
             </thead>
@@ -228,7 +228,7 @@
             @else
                 <tr>
                     <td style="border: 1px solid black;border-collapse: collapse" rowspan="2">2</td>
-                    <td style="border: 1px solid black;border-collapse: collapse" rowspan="2">ภาษีบำรุ้งท้องที่</td>
+                    <td style="border: 1px solid black;border-collapse: collapse" rowspan="2">ภาษีบำรุงท้องที่</td>
                     <td style="border: 1px solid black;border-collapse: collapse">ราย</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax02_estimated_amount_form']) ? number_format($fd['tax02_estimated_amount_form']) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax02_estimated_amount_form']) ? number_format($cumulative_year['tax02_estimated_amount_form']): null}}</td>
@@ -243,10 +243,10 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax02_accept_payment_monthly_form']) ? number_format($fd['tax02_accept_payment_monthly_form']) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax02_accept_payment_monthly_form']) ? number_format($cumulative_year['tax02_accept_payment_monthly_form']) : null}}</td>
 
-                    @if(isset($fd['tax02_estimated_amount_money']) && isset($cumulative_year['tax02_accept_payment_monthly_money']))
+                    @if(isset($initiation_year_tax['tax02']) && isset($cumulative_year['tax02_accept_payment_monthly_money']))
                         <td style="border: 1px solid black;border-collapse: collapse"
                             rowspan="2">
-                            {{number_format($fd['tax02_estimated_amount_money'] - $cumulative_year['tax02_accept_payment_monthly_money'],2)}}</td>
+                            {{number_format($initiation_year_tax['tax02'] - $cumulative_year['tax02_accept_payment_monthly_money'],2)}}</td>
                     @else
                         <td style="border: 1px solid black;border-collapse: collapse"
                             rowspan="2"></td>
@@ -312,7 +312,7 @@
                 <th style="border: 1px solid black;border-collapse: collapse">
                     รับชำระประจำเดือน {{$selected['selected_month_short']}} {{$selected['selected_year_short']}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">รับตั้งแต่
-                    ต.ค.{{$selected['selected_init_year_short']}} - ต.ค.{{$selected['selected_year_short']}}</th>
+                    ต.ค.{{$selected['selected_init_year_short']}} - {{$selected['selected_month_short'] .' '. $selected['selected_year_short']}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">ประมาณการคงเหลือ</th>
             </tr>
             </thead>
@@ -340,10 +340,10 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax03_accept_payment_monthly_form']) ? number_format($fd['tax03_accept_payment_monthly_form']) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax03_accept_payment_monthly_form']) ? number_format($cumulative_year['tax03_accept_payment_monthly_form']) : null}}</td>
 
-                    @if(isset($fd['tax03_estimated_amount_money']) && isset($cumulative_year['tax03_accept_payment_monthly_money']))
+                    @if(isset($initiation_year_tax['tax03']) && isset($cumulative_year['tax03_accept_payment_monthly_money']))
                         <td style="border: 1px solid black;border-collapse: collapse"
                             rowspan="2">
-                            {{number_format($fd['tax03_estimated_amount_money'] - $cumulative_year['tax03_accept_payment_monthly_money'],2)}}</td>
+                            {{number_format($initiation_year_tax['tax03']- $cumulative_year['tax03_accept_payment_monthly_money'],2)}}</td>
                     @else
                         <td style="border: 1px solid black;border-collapse: collapse"
                             rowspan="2"></td>
@@ -413,7 +413,7 @@
                 <th style="border: 1px solid black;border-collapse: collapse">
                     รับชำระประจำเดือน {{$selected['selected_month_short']}} {{$selected['selected_year_short']}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">รับตั้งแต่
-                    ต.ค.{{$selected['selected_init_year_short']}} - ต.ค.{{$selected['selected_year_short']}}</th>
+                    ต.ค.{{$selected['selected_init_year_short']}} - {{$selected['selected_month_short'] .' '. $selected['selected_year_short']}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">ประมาณการคงเหลือ</th>
             </tr>
             </thead>
@@ -443,10 +443,10 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax04_accept_payment_monthly_form']) ? number_format($fd['tax04_accept_payment_monthly_form']) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax04_accept_payment_monthly_form']) ? number_format($cumulative_year['tax04_accept_payment_monthly_form']) : null}}</td>
 
-                    @if(isset($fd['tax04_estimated_amount_money']) && isset($cumulative_year['tax04_accept_payment_monthly_money']))
+                    @if(isset($initiation_year_tax['tax04']) && isset($cumulative_year['tax04_accept_payment_monthly_money']))
                         <td style="border: 1px solid black;border-collapse: collapse"
                             rowspan="2">
-                            {{number_format($fd['tax04_estimated_amount_money'] - $cumulative_year['tax04_accept_payment_monthly_money'],2)}}</td>
+                            {{number_format($initiation_year_tax['tax04']- $cumulative_year['tax04_accept_payment_monthly_money'],2)}}</td>
                     @else
                         <td style="border: 1px solid black;border-collapse: collapse"
                             rowspan="2"></td>
@@ -504,7 +504,7 @@
             </tr>
             <tr>
                 <th style="border: 1px solid black;border-collapse: collapse">จัดเก็บได้ตั้งแต่
-                    ต.ค.{{$selected['selected_year_short']- 1}} - ต.ค.{{$selected['selected_year_short']}}</th>
+                    ต.ค.{{$selected['selected_init_year_short']}} - {{$selected['selected_month_short'] .' '. $selected['selected_year_short']}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax01_accept_payment_monthly_money']) ? number_format($cumulative_year['tax01_accept_payment_monthly_money'],2) : $cumulative_year['tax01_accept_payment_monthly_money']}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax02_accept_payment_monthly_money']) ? number_format($cumulative_year['tax02_accept_payment_monthly_money'],2) : null}}</th>
                 <th style="border: 1px solid black;border-collapse: collapse">{{isset($cumulative_year['tax03_accept_payment_monthly_money']) ? number_format($cumulative_year['tax03_accept_payment_monthly_money'],2) : null}}</th>

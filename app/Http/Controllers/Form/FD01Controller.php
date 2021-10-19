@@ -332,7 +332,7 @@ class FD01Controller extends CrudController
     }
 
     protected static function addFormTax02()
-    { //ภาษีบำรุ้งท้องที่
+    { //ภาษีบำรุงท้องที่
         return [
             [
                 'name' => 'tax02_label_header_1',
@@ -342,7 +342,7 @@ class FD01Controller extends CrudController
             [
                 'name' => 'tax02_label_header',
                 'type' => 'label_header',
-                'label' => '>> ภาษีบำรุ้งท้องที่ <<',
+                'label' => '>> ภาษีบำรุงท้องที่ <<',
             ],
             [
                 'name' => 'tax02_estimated_amount_form',

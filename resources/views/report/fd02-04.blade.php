@@ -85,8 +85,8 @@
                 <th style="border: 1px solid black;border-collapse: collapse">รายชื่อผู้ค้างชำระ</th>
                 <th style="border: 1px solid black;border-collapse: collapse">ปีที่ค้างชำระ</th>
                 <th style="border: 1px solid black;border-collapse: collapse">จำนวนเงิน ค่าภาษี</th>
-                <th style="border: 1px solid black;border-collapse: collapse">ค่าเบี้ย</th>
-                <th style="border: 1px solid black;border-collapse: collapse">ค่าเพิ่ม</th>
+                <th style="border: 1px solid black;border-collapse: collapse">ค่าเบี้ยปรับ</th>
+                <th style="border: 1px solid black;border-collapse: collapse">ค่าเงินเพิ่ม</th>
                 <th style="border: 1px solid black;border-collapse: collapse">จำนวนเงิน รวม</th>
                 <th style="border: 1px solid black;border-collapse: collapse">เลขที่ออกหนังสือ</th>
                 <th style="border: 1px solid black;border-collapse: collapse">วันที่รับชำระ</th>
