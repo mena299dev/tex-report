@@ -358,8 +358,8 @@
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax03_accounts_receivable_brought_forward_money']) ? number_format($fd['tax03_accounts_receivable_brought_forward_money'],2) : null}}</td>
                     <td style="border: 1px solid black;border-collapse: collapse">{{isset($fd['tax03_accounts_receivable_accept_payment_money']) ? number_format($fd['tax03_accounts_receivable_accept_payment_money'],2) : null}}</td>
 
-                    @if(isset($fd['tax03_accounts_receivable_brought_forward_money']) && isset($fd['tax01_accounts_receivable_accept_payment_money']))
-                        <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accounts_receivable_brought_forward_money'] - $fd['tax01_accounts_receivable_accept_payment_money'],2)}}</td>
+                    @if(isset($fd['tax03_accounts_receivable_brought_forward_money']) && isset($fd['tax03_accounts_receivable_accept_payment_money']))
+                        <td style="border: 1px solid black;border-collapse: collapse">{{number_format($fd['tax03_accounts_receivable_brought_forward_money'] - $fd['tax03_accounts_receivable_accept_payment_money'],2)}}</td>
                     @else
                         <td style="border: 1px solid black;border-collapse: collapse"></td>
                     @endif

@@ -185,17 +185,11 @@ class FD01Controller extends CrudController
 
     public function exportPDF($data, $InitiationYearTax)
     {
-
         $pdf = PDF::loadView('export.fd01', [
             'fd' => $data['fd'],
             'cumulative_year' => $data['cumulative_year'],
             'initiation_year_tax' => $InitiationYearTax,
-            'selected' => [
-                'selected_month' => $data['selected']['selected_month_number'],
-                'selected_month_short' => $data['selected']['selected_month_number'] != 0 ? DateList::getMonthShort($data['selected']['selected_month_number']) : null,
-                'selected_year' => $data['selected']['selected_year'],
-                'selected_year_short' => Str::substr($data['selected']['selected_year'], -2, 2) ?? null,
-                'selected_district' => $data['selected']['selected_district']]
+            'selected' => $data['selected']
         ])->setPaper(array(0, 0, 600, 800), 'landscape');
 
         return $pdf->download('fd01.pdf');
